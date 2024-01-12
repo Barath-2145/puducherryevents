@@ -1,0 +1,129 @@
+﻿
+@{
+    ViewBag.Title = "Event2";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@*@import $ from "https://cdn.skypack.dev/jquery@3.6.0";*@
+<style>
+    body {
+        background-color: #212121;
+    }
+
+    #heroTitle {
+        margin-top: 30vh;
+        background-image: linear-gradient(45deg, #d5e9f8, #72bff5);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        -moz-background-clip: text;
+        -moz-text-fill-color: transparent;
+        margin-top: 60px;
+        color: white;
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: 9px;
+    }
+
+    #showCaseBackgroundLine {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 90vw;
+        border: 0;
+        height: 3px;
+        border-radius: 50%;
+        background-image: linear-gradient(to right, rgb(143 205 185 / 0%), rgb(170 231 244 / 75%), rgba(0, 0, 0, 0));
+    }
+
+    .imageContainer {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        perspective: 600px;
+    }
+
+    .image {
+        /*box-shadow: 3px 3px 12px #141414, 0 0 200px rgba(0,0,0,0.9) inset;*/
+        width: 200px;
+        transition: all 0.72s;
+        cursor: pointer;
+        border-radius: 6px;
+        width: 270px;
+        height: 180px;
+        background-size: cover;
+        background-position: center;
+        position: relative;
+        perspective: 500px;
+    }
+
+    .a {
+        transform: rotateY(42deg);
+        background-image: url(https://img5.goodfon.com/wallpaper/nbig/7/e3/stefan-koidl-by-stefan-koidl-chernobyl-horror-story-mashina.jpg);
+    }
+
+    .b {
+        transform: translateZ(-70px);
+        background-image: url(https://cdnb.artstation.com/p/assets/images/images/010/874/585/large/stefan-koidl-tallandskinny.jpg?1526674661);
+    }
+
+    .c {
+        transform: rotateY(-42deg);
+        background-image: url(https://cdnb.artstation.com/p/assets/images/images/012/158/221/large/stefan-koidl-intruders5.jpg);
+    }
+
+    .activeA {
+        /*box-shadow: 3px 3px 12px #141414;*/
+        transform: translateX(100%) translateZ(200px);
+        z-index: 2;
+        border: 3px solid white;
+        border-radius: 12px;
+    }
+
+    .activeB {
+        /*box-shadow: 3px 3px 12px #141414;*/
+        transform: translateZ(200px);
+        z-index: 2;
+        border: 3px solid white;
+        border-radius: 12px;
+    }
+
+    .activeC {
+       /* box-shadow: 3px 3px 12px #141414;*/
+        transform: translateX(-100%) translateZ(200px);
+        z-index: 2;
+        border: 3px solid white;
+        border-radius: 12px;
+    }
+</style>
+<h2 id="heroTitle">My awesome projects</h2>
+<div class="imageContainer">
+    <hr id="showCaseBackgroundLine">
+    <div class="image a"></div>
+
+    <div class="image b"></div>
+
+    <div class="image c"></div>
+</div>
+<script>
+    //import only need for pen
+
+
+    $(function () {
+        $(".image").on("click", function () {
+            if ($(this).hasClass("a")) {
+                $(".b").removeClass("activeB");
+                $(".c").removeClass("activeC");
+                $(this).toggleClass("activeA");
+            } else if ($(this).hasClass("b")) {
+                $(".a").removeClass("activeA");
+                $(".c").removeClass("activeC");
+                $(this).toggleClass("activeB");
+            } else if ($(this).hasClass("c")) {
+                $(".a").removeClass("activeA");
+                $(".b").removeClass("activeB");
+                $(this).toggleClass("activeC");
+            }
+        });
+    });
+
+</script>

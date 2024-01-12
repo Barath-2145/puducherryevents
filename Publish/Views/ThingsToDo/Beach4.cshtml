@@ -1,0 +1,518 @@
+﻿
+@{
+    ViewBag.Title = "Beach4";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+
+<style>
+    /* Make the image fully responsive */
+    .carousel-inner img {
+        width: 100%;
+        height: 400px;
+    }
+
+    .card {
+        margin-bottom: 2rem;
+    }
+
+    #main h1 {
+        font-size: 45px;
+        color: #bac0e3;
+        text-align: center;
+    }
+
+    .cards-list {
+        z-index: 0;
+        width: 71%;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        margin: auto;
+    }
+
+    .auro .card {
+        margin: 30px auto;
+        width: 300px;
+        height: 260px;
+        border-radius: 50px 0;
+        box-shadow: 0px 0px 15px rgb(0 0 0 / 30%);
+        cursor: pointer;
+        transition: 0.4s;
+        justify-content: flex-start !important;
+        background-color: #97A9BD;
+    }
+
+    .card_image {
+        background: #fff;
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        margin: 10px auto;
+    }
+
+        .card_image i {
+            margin: 17px;
+            font-size: 37px;
+            -webkit-animation: spin 4s linear infinite;
+            -moz-animation: spin 4s linear infinite;
+            animation: spin 4s linear infinite;
+        }
+
+    @@-moz-keyframes spin {
+        100% {
+            -moz-transform: rotate(360deg);
+        }
+    }
+
+    @@-webkit-keyframes spin {
+        100% {
+            -webkit-transform: rotate(360deg);
+        }
+    }
+
+    @@keyframes spin {
+        100% {
+            -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+        }
+    }
+
+    .card_title .heading {
+        font-size: 1.2rem;
+        font-weight: 700;
+        margin: auto;
+        text-align: center;
+        color: #fff;
+    }
+
+    .card_title p {
+        margin: 10px auto;
+        line-height: normal;
+        text-align: center;
+        color: #fff;
+    }
+
+    .cards-list .card:nth-child(1) {
+        background-color: #97A9BD;
+    }
+
+        .cards-list .card:nth-child(1):hover {
+            background-color: #5e6e80;
+        }
+
+    .cards-list .card1 .card_image a i {
+        color: #97A9BD;
+    }
+
+    .cards-list .card:nth-child(2) {
+        background-color: #A197BD;
+    }
+
+        .cards-list .card:nth-child(2):hover {
+            background-color: #625682;
+        }
+
+    .cards-list .card2 .card_image a i {
+        color: #A197BD;
+    }
+
+    .cards-list .card:nth-child(3) {
+        background-color: #BDA697;
+    }
+
+        .cards-list .card:nth-child(3):hover {
+            background-color: #826552;
+        }
+
+    .cards-list .card3 .card_image a i {
+        color: #BDA697;
+    }
+
+    .btn-flip {
+        opacity: 1;
+        outline: 0;
+        color: #fff;
+        line-height: 40px;
+        position: relative;
+        text-align: center;
+        letter-spacing: 1px;
+        display: inline-block;
+        text-decoration: none;
+        font-family: "Open Sans";
+        text-transform: uppercase;
+    }
+
+        .btn-flip:hover:after {
+            opacity: 1;
+            transform: translateY(0) rotateX(0);
+        }
+
+        .btn-flip:hover:before {
+            opacity: 0;
+            transform: translateY(50%) rotateX(90deg);
+        }
+
+        .btn-flip:after {
+            top: 0;
+            left: 0;
+            opacity: 0;
+            width: 100%;
+            color: #ababb4;
+            display: block;
+            transition: 0.5s;
+            position: absolute;
+            background: #fcfcfc;
+            content: attr(data-back);
+            transform: translateY(-50%) rotateX(90deg);
+        }
+
+        .btn-flip:before {
+            top: 0;
+            left: 0;
+            opacity: 1;
+            color: #f9f9ff;
+            display: block;
+            padding: 0 30px;
+            line-height: 40px;
+            transition: 0.5s;
+            position: relative;
+            /* background: #fbfbfd; */
+            content: attr(data-front);
+            transform: translateY(0) rotateX(0);
+            border: 1px solid #fbfbfb;
+        }
+
+    .btn-read {
+        justify-content: center;
+        align-content: center;
+        display: flex;
+        margin: 31px;
+    }
+
+    .auro p {
+        display: -webkit-box;
+        max-width: 300px;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    .sec-title-style1 .title {
+        position: relative;
+        display: block;
+        color: #012970;
+        font-size: 36px;
+        line-height: 46px;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+
+    *, ::after, ::before {
+        box-sizing: border-box;
+    }
+
+    .sec-title-style1 .text p {
+        position: relative;
+        display: inline-block;
+        padding: 0 15px;
+        color: #012970;
+        font-size: 14px;
+        line-height: 16px;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin: 0;
+    }
+
+    .sec-title-style1 .text .decor-left {
+        position: relative;
+        top: -2px;
+        display: inline-block;
+        width: 70px;
+        height: 5px;
+        background: transparent;
+    }
+
+    .sec-title-style1 .text .decor-right {
+        position: relative;
+        top: -2px;
+        display: inline-block;
+        width: 70px;
+        height: 5px;
+        background: transparent;
+    }
+
+    .sec-title-style1 .text .decor-left span {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 50px;
+        height: 1px;
+        background: #FFA500;
+        content: "";
+        margin: 2px 0;
+    }
+
+    .sec-title-style1 .text .decor-left::before {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 5px;
+        height: 5px;
+        background: #FFA500;
+        border-radius: 50%;
+        content: "";
+    }
+
+    .sec-title-style1 .text .decor-left::after {
+        position: absolute;
+        top: 0;
+        right: 10px;
+        bottom: 0;
+        width: 5px;
+        height: 5px;
+        background: #FFA500;
+        border-radius: 50%;
+        content: "";
+    }
+
+    .sec-title-style1 .text .decor-right::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 5px;
+        height: 5px;
+        background: #FFA500;
+        border-radius: 50%;
+        content: "";
+    }
+
+    .sec-title-style1 .text .decor-right::after {
+        position: absolute;
+        top: 0;
+        left: 10px;
+        bottom: 0;
+        width: 5px;
+        height: 5px;
+        background: #FFA500;
+        border-radius: 50%;
+        content: "";
+    }
+
+    .sec-title-style1 .text .decor-right span {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 50px;
+        height: 1px;
+        background: #FFA500;
+        content: "";
+        margin: 2px 0;
+    }
+</style>
+
+
+
+<div id="demo" class="carousel slide" data-ride="carousel">
+    <ul class="carousel-indicators">
+        <li data-target="#demo" data-slide-to="0" class="active"></li>
+        <li data-target="#demo" data-slide-to="1"></li>
+        <li data-target="#demo" data-slide-to="2"></li>
+    </ul>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="~/images/auro8.jpg" width="1100" height="200" />
+            @*<img src="la.jpg" alt="Los Angeles" width="1100" height="500">*@
+            <div class="carousel-caption">
+                <h3>Serenity Beach</h3>
+                <p>We had such a great time in Serenity Beach!</p>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="~/images/auro11.png" width="1100" height="200" />
+            @*<img src="chicago.jpg" alt="Chicago" width="1100" height="500">*@
+            <div class="carousel-caption">
+                <h3>Serenity Beach</h3>
+                <p>Thank you, Puducherry!</p>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="~/images/auro12.jpg" width="1100" height="200" />
+            @*<img src="ny.jpg" alt="New York" width="1100" height="500">*@
+            <div class="carousel-caption">
+                <h3>Serenity Beach</h3>
+                <p>We love to Surf in Beach!</p>
+            </div>
+        </div>
+    </div>
+    <a class="carousel-control-prev" href="#demo" data-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+    </a>
+    <a class="carousel-control-next" href="#demo" data-slide="next">
+        <span class="carousel-control-next-icon"></span>
+    </a>
+</div>
+<div style="padding:8px;"></div>
+<div>
+    <div class="container" data-aos="fade-up" data-aos-delay="200">
+        <div class="row">
+            <div class="col-12 col-sm-6 col-lg-12">
+                <div class="card bg-light">
+                    <div class="card-body" style="background-color:darkgray; color:black;">
+                        <h4 class="card-title">Serenity Beach</h4>
+                        <h6 class="card-subtitle mb-2">Surf in Beach</h6>
+                        <p class="card-text">
+                            Serenity Beach
+                            The gorgeous erstwhile French capital of India, Puducherry, is mesmerising in all aspects. The tranquil UT has several activities and places to visit for all age groups. Along with the breathtaking monuments and museums, the coastal area of Puducherry marks some of the most beautiful beaches. Among these beaches is the Serenity beach, one of its kind.
+
+                            The name “Serenity” is apt for the beach due to the tranquillity it exudes on all travellers visiting it. The calm and clean beach is a perfect getaway from the rush of the city. Moreover, the beach is less crowded, making it a top pick for honeymoon couples and families to relax and enjoy their ‘Me’ time.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container" data-aos="fade-up" data-aos-delay="200">
+    <div class="sec-title-style1 text-center max-width">
+        <div class="title">Visiting Time</div>
+        <div class="text"><div class="decor-left"><span></span></div><p>Time to visit Serenity Beach</p><div class="decor-right"><span></span></div></div>
+    </div>
+   
+    <p>
+        <h5 style="color:brown">Timing for the Visitors:</h5>
+
+
+        Mon. to Sun., 06:00 a.m. - 06:00 p.m.
+
+    </p>
+    <p>
+        <h5 style="color:brown">Things to do at Serenity beach:</h5><br />
+
+        The Serenity beach is a major tourist attraction in Puducherry. However, it is not only the water and the white sand that attracts tourists, but you can do so much more if only you let yourself flow with the waves and enjoy the tides sitting back.
+        <div style="padding:4px"></div>
+        <h5 style="color:brown">Surfing:</h5> If you want to surf, you know where to go in Puducherry. With adrenaline pumping high all day long, you will find crowds of youngsters and tourists riding the waves on their surfboards. The tides of the Bay of Bengal beckon you to get it a shot and make your trip worthwhile. If you are a true adrenaline enthusiast and a hardcore adventure seeker, surfing and parasailing are for you.<br />
+
+        You can also undergo short training in a school near the beach. All surfing equipment and gear are available for rent. You also have surfing guides to help you understand the movements and make the most of your time.
+        <div style="padding:4px"></div>
+        <h5 style="color:brown">Photography:</h5> In this world of social media, no trip is complete without a couple of photographs. Pictures come alive with every shot and angle from the beautiful backdrop of the palm trees, the carpeted white sand, and the shimmering water. The dawn makes the place more attractive, with the sun rising near the horizon and the glistening cold sand underneath your feet; you will witness several pre-wedding shoots and general photographs at this time.
+        <div style="padding:4px"></div>
+        <h5 style="color:brown">Shopping:</h5> It will be unfair for you to leave the beach without a souvenir or two from the local market. Good quality local products and handicraft items are available at the local beach market. You can find footwear, textiles and garments, local handicraft, jewellery, spices, apparel, and much more. If you happen to come over a weekend, don’t forget to check out the local market called the Serenity beach bazaar that is set up every weekend from 10 AM to 5 PM.
+        <div style="padding:4px"></div>
+        <h5 style="color:brown">Eating:</h5>  Who doesn’t enjoy eating delicious food, right? The Serenity beach offers you some of the best local delicacies that will tingle your taste buds. From Indian to continental, you can gorge on anything you wish, right here.
+        <div style="padding:4px"></div>
+        <h5 style="color:brown">Strolling:</h5> If you happen to book a resort near the beach, we recommend you take a stroll along the beachside in the morning or evening with your loved ones. The calming aura of the waves and the cool sand underneath your feet takes all your woes away.
+    </p>
+
+</div>
+<section class="auro" id="main" data-aos="fade-up" data-aos-delay="200">
+    @*<h1>Nearby Places</h1>*@
+    <div class="sec-title-style1 text-center max-width">
+        <div class="title">Nearby Places</div>
+        <div class="text"><div class="decor-left"><span></span></div><p>Places Near Serenity Beach</p><div class="decor-right"><span></span></div></div>
+    </div>
+    <div class="cards-list">
+
+        <div class="card card1">
+            <div class="card_image">
+                <img src="~/images/auro8.jpg" height="71px" width="75px" style="border-radius:50%;" />
+                @*<a href=""><i class="fa fa-spinner"></i></a>*@
+            </div>
+            <div class="card_title title-white">
+                <h6 class="heading">Aurovile Beach</h6>
+                <p>
+                    All those who are looking for a mix of sun, sea, and sand can head to Auroville Beach in Pondicherry. Widely popular among the locals as Auro Beach, Auroville Beach is one of the unexplored beaches of the city that offers an unparalleled setting with a calm and peaceful environment to people seeking some time away from the crowded areas.
+
+                    Ideal for solo travelers, couples, and a group of friends, Auroville Beach invites tourists of all ages to relax and rejuvenate in a laid-back atmosphere along with witnessing the picturesque landscapes. Named after the renowned Auroville township, it is a nice, clean, and well-maintained beach in South India and has golden-colored soft black volcanic sand scattered all around the place.
+                </p>
+
+            </div>
+            <div class="btn-read">
+                <a href="#" class="btn-flip" data-back="Back" data-front="read more"></a>
+            </div>
+        </div>
+
+
+        <div class="card card2">
+            <div class="card_image">
+                <img src="~/images/irumbai.jpg" height="71px" width="75px" style="border-radius:50%;" />
+                @*<a href=""><i class="fa fa-spinner"></i></a>*@
+            </div>
+            <div class="card_title title-white">
+                <h6 class="heading">PTU</h6>
+                <p>Puducherry Technological University (PTU) is the first state University of Union Territory of Puducherry. It seamlessly came into existence on 5th September 2020 upon the elevation of erstwhile Pondicherry Engineering College - PEC (established in the year 1985 under the 7th five-year plan) with the University status. PTU began its journey with a position of pre-eminence and rightly stands as one of the finest engineering schools offering Bachelors, Masters and Doctoral study programmes in the prominent disciplines of Engineering/Technology, Science, Management and Entrepreneurship. Highly qualified faculty, diverse student population from across the country, best-of-breed infrastructure and an expansive campus sprawling over 185.8 acres of luscious green landscape on the shores of tantalizing Bay of Bengal present a vibrant ecosystem for the pursuit of intellectual excellence. Thirty-six years on since its original inception, PTU has built a legacy for itself and stands in good stead in terms of discernible academic parameters. NIRF, MHRD, Govt. of India has ranked us at 144 under the category of engineering education. PTU alumni are spread far and wide across the globe holding eminent positions in top global Corporates, Universities and Civil Services. Some of them own successful enterprises in India and abroad. Such accomplishments stand testimony to the quality of education we have been offering from the classrooms of PTU.</p>
+
+            </div>
+            <div class="btn-read">
+                <a href="#" class="btn-flip" data-back="Back" data-front="read more"></a>
+            </div>
+        </div>
+
+
+        <div class="card card3">
+            <div class="card_image">
+                <img src="~/images/auro12.jpg" height="71px" width="75px" style="border-radius:50%;" />
+                @*<a href=""><i class="fa fa-spinner"></i></a>*@
+            </div>
+            <div class="card_title title-white">
+                <h6 class="heading">Sai Ram Temple</h6>
+                <p>
+                    Shri Kamala Sai Baba Temple is situated at Pillaichavady, Pondicherry. Its just opposite to well known educational hub of Puducherry namely; PONDICHERRY ...
+                </p>
+
+            </div>
+            <div class="btn-read">
+                <a href="#" class="btn-flip" data-back="Back" data-front="read more"></a>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<div class="address" data-aos="fade-up" data-aos-delay="200">
+    <div class="container">
+        <div class="sec-title-style1 text-center max-width">
+            <div class="title">Location</div>
+            <div class="text"><div class="decor-left"><span></span></div><p>How To Reach Serenity Beach</p><div class="decor-right"><span></span></div></div>
+        </div>
+        <div style="padding:4px;"></div>
+        <div class="row col-md-12">
+            <div class="col-md-4">
+                <img src="~/images/auro1.jpg" height="202" width="360" />
+            </div>
+            <div class="col-12 col-sm-6 col-lg-8">
+                <div class="card bg-light">
+                    <div class="card-body" @*style="background-color:darkgray; color:black;"*@>
+                        <p>
+
+                            <i class="fa fa-check" style="color:darkblue;"></i>&nbsp; Distance from the airport: 10 Km<br />
+                            <i class="fa fa-check" style="color:darkblue;"></i>&nbsp; Distance from the railway station: 50 Km<br />
+                            <i class="fa fa-check" style="color:darkblue;"></i>&nbsp; Distance from the bus stand: 10 km<br />
+
+                        </p>
+                        <p class="card-text">
+                           Villa La Serenity Connecting Rd,<br /> Puducherry<br />
+                            605104
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+

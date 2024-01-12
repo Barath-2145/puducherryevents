@@ -1,0 +1,380 @@
+﻿
+@{
+    ViewBag.Title = "Availability";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    //var _recId = Context.Request.QueryString["_recId"] == null ? "" : Context.Request.QueryString["_recId"];
+    //var _placeId = Context.Request.QueryString["_placeId"] == null ? "" : Context.Request.QueryString["_placeId"];
+}
+
+
+@*@{
+        ViewBag.Title = "Availability";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+        var _recId = Context.Request.QueryString["_recId"] == null ? "" : Context.Request.QueryString["_recId"];
+    }*@
+
+<style>
+    .space {
+        padding: 4px;
+    }
+
+    img {
+        /*background-color:red;*/
+        height: 200px;
+        background-size: cover;
+    }
+
+    .tour p {
+        display: -webkit-box;
+        max-width: 300px;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    .tour .text-lg-start {
+        text-align: right !important;
+    }
+
+    #hero {
+        /* background-image: url('../../images/8.jpg');*/
+        background-image: url('../../images/je-taime-1.png');
+    }
+
+    .btn-get-started {
+        line-height: 0;
+        padding: 11px 43px;
+        border-radius: 4px;
+        transition: 0.5s;
+        color: #fff;
+        background: green;
+        box-shadow: 0px 5px 30px rgba(65, 84, 241, 0.4);
+    }
+
+    .sec-title-style1 .title {
+        position: relative;
+        display: block;
+        color: #012970;
+        font-size: 36px;
+        line-height: 46px;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+
+    *, ::after, ::before {
+        box-sizing: border-box;
+    }
+
+    .text-center {
+        text-align: center !important;
+    }
+
+    .sec-title-style1 .text p {
+        position: relative;
+        display: inline-block;
+        padding: 0 15px;
+        color: #012970;
+        font-size: 14px;
+        line-height: 16px;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin: 0;
+    }
+
+    .sec-title-style1 .text .decor-left {
+        position: relative;
+        top: -2px;
+        display: inline-block;
+        width: 70px;
+        height: 5px;
+        background: transparent;
+    }
+
+    .sec-title-style1 .text .decor-right {
+        position: relative;
+        top: -2px;
+        display: inline-block;
+        width: 70px;
+        height: 5px;
+        background: transparent;
+    }
+
+    .sec-title-style1 .text .decor-left span {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 50px;
+        height: 1px;
+        background: #FFA500;
+        content: "";
+        margin: 2px 0;
+    }
+
+    .sec-title-style1 .text .decor-left::before {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 5px;
+        height: 5px;
+        background: #FFA500;
+        border-radius: 50%;
+        content: "";
+    }
+
+    .sec-title-style1 .text .decor-left::after {
+        position: absolute;
+        top: 0;
+        right: 10px;
+        bottom: 0;
+        width: 5px;
+        height: 5px;
+        background: #FFA500;
+        border-radius: 50%;
+        content: "";
+    }
+
+    .sec-title-style1 .text .decor-right::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 5px;
+        height: 5px;
+        background: #FFA500;
+        border-radius: 50%;
+        content: "";
+    }
+
+    .sec-title-style1 .text .decor-right::after {
+        position: absolute;
+        top: 0;
+        left: 10px;
+        bottom: 0;
+        width: 5px;
+        height: 5px;
+        background: #FFA500;
+        border-radius: 50%;
+        content: "";
+    }
+
+    .sec-title-style1 .text .decor-right span {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 50px;
+        height: 1px;
+        background: #FFA500;
+        content: "";
+        margin: 2px 0;
+    }
+
+    .rules i {
+        color: #012970;
+    }
+</style>
+<br />
+<br />
+<br />
+<br />
+<div id="main">
+    <div>
+        <div style="padding:8px;"></div>
+        <div class="sec-title-style1 text-center max-width">
+            <div class="title">Rules and Regulations</div>
+            <div class="text"><div class="decor-left"><span></span></div><p>Kindly Follow the instructions for book event</p><div class="decor-right"><span></span></div></div>
+
+        </div>
+    </div>
+
+    <div style="padding:4px;"></div>
+    <div class="container">
+       
+        <div class="rules">
+
+            <p>
+                <h4><b>The flow of permission / NOC for conduct of events or exhibition etc.,</b></h4><div style="padding:4px;"></div>
+                <i class="fa fa-check"></i>	The NOC from District Magistrate is mainly to ensure the safe conduct of the events  in order to avoid any outward incidents.<div style="padding:4px;"></div>
+                <i class="fa fa-check"></i>	Anyone who wishes to conduct an event / exhibition would apply to the District Collector for an NOC.<div style="padding:4px;"></div>
+                <i class="fa fa-check"></i>	The event organizer may submit the details of the event and arrangement planned shall along with a rough sketch and the amenities provided etc.,<div style="padding:4px;"></div>
+                <i class="fa fa-check"></i>	Based on the request the proposal will be forwarded to the Line Dept., Viz., SDM, Police, Fire, PWD Municipality etc.,<div style="padding:4px;"></div>
+                <i class="fa fa-check"></i>	The Line Dept., will inspect the location if needed and give their opinion to the event. Based on that the NOC is issued with the conditions as recommended by the line Dept., In order to ensure the safety and security of general public.<div style="padding:4px;"></div>
+                <i class="fa fa-check"></i>	The general points of observation or requirement from the line Dept., are enlisted below :<div style="padding:4px;"></div>
+            </p>
+
+            <div id="view" style="display:none;">
+                <p>
+                    <h4><b>SUB DIVISIONAL MAGISTRATE</b></h4>
+                    <i class="fa fa-check"></i>	Wearing of face masks to be mandatory to the audience and the workers. Further, face masks shall be provided free of cost to the audience to the required customers.<div style="padding:4px;"></div>
+                    <i class="fa fa-check"></i>	Hand sanitizers should be placed at the entry, exit and other necessary places and audience should be allowed to use sanitizers compulsorily.<div style="padding:4px;"></div>
+                    <i class="fa fa-check"></i>Proper cleaning and frequent sanitization of the premises should be ensured. Social distancing should be ensured.<div style="padding:4px;"></div>
+                    <i class="fa fa-check"></i>The applicant shall assured that no “Gambling” will be allowed to be played in the exhibition premises.<div style="padding:4px;"></div>
+                    <i class="fa fa-check"></i>	Proper clean drinking water to be provided to the public free of cost and it should be maintained and changed regularly.<div style="padding:4px;"></div>
+                    <i class="fa fa-check"></i>	Proper entry and exit ways to be regulated without any hindrance to the public in the premises.<div style="padding:4px;"></div>
+                    <i class="fa fa-check"></i>	All the playing equipment’s should be properly checked every day as to whether it has been fitted properly.<div style="padding:4px;"></div>
+                    <i class="fa fa-check"></i>	No fireworks or electric related games should be conducted.<div style="padding:4px;"></div>
+                    <i class="fa fa-check"></i>	No thatched roof or premises should be erected.<div style="padding:4px;"></div>
+                    <i class="fa fa-check"></i>	Clean toilet facility for men and women should be provided separately.<div style="padding:4px;"></div>
+                    <i class="fa fa-check"></i>	The food/eatables sold in the exhibition shall be clean and hygienic.<div style="padding:4px;"></div>
+                    <i class="fa fa-check"></i>	Covid-19 awareness boards should be displayed at various places of the premises.<div style="padding:4px;"></div>
+                    <i class="fa fa-check"></i>	Water tankers and fire safety equipment’s should be provided as directed by the Fire service Department.<div style="padding:4px;"></div>
+                    <i class="fa fa-check"></i>	Clean drinking water is to be provided free of cost to all the visitors / customers.<div style="padding:4px;"></div>
+                    <i class="fa fa-check"></i>	Proper parking space should be provided for the customers.<div style="padding:4px;"></div>
+                    <i class="fa fa-check"></i>	No objectionable content of social / religious / caste are to be displayed or exhibited.<div style="padding:4px;"></div>
+                    <i class="fa fa-check"></i>	Necessary license / permission / permit for any tax (GST) components should be paid/ obtained from the concerned authorities.<div style="padding:4px;"></div>
+                </p>
+                <p>
+                    <h4><b>POLICE  (L&O / TRAFFIC)</b></h4>
+                    <i class="fa fa-check"></i>	Required parking areas have to be provided within their campus/premises free of cost according to the area to be utilized for commercial purpose<div style="padding:4px;"></div>
+                    <i class="fa fa-check"></i>	Adequate number of private securities shall be engaged to regulate the vehicles coming towards their exhibition site.<div style="padding:4px;"></div>
+                    <i class="fa fa-check"></i>	No vehicles shall be allowed to be parked on the road side.<div style="padding:4px;"></div>
+                    <i class="fa fa-check"></i>	Separate parking lots for four wheelers and two wheelers have to be earmarked within the proposed site during erection of structures in the beginning itself.<div style="padding:4px;"></div>
+                    <i class="fa fa-check"></i>	The organizer of the exhibition shall be duly sensitized to give much importance to the regulation/parking of their customers’ vehicle.<div style="padding:4px;"></div>
+                    <i class="fa fa-check"></i>	The organizer should get fitness certificate from the competent authority for all machinery using for the exhibition.<div style="padding:4px;"></div>
+                    <i class="fa fa-check"></i>	The organizer should arrange good CCTV camera coverage, water, medical assistant, parking, adequate fire extinguisher etc. to tackle any emergency.<div style="padding:4px;"></div>
+                    <i class="fa fa-check"></i>	The organizer are instructed that the programme should not create any Law and Order issues and should ensure no disturbance to general public in the locality.<div style="padding:4px;"></div>
+                </p>
+                <p>
+                    <h4><b>FIRE DEPARTMENT</b></h4>
+
+                    <i class="fa fa-check"></i>	2 Nos. of ABC type Fire Extinguishers (6Kgs) at the entrance and exit points.<div style="padding:4px;"></div>
+                    <i class="fa fa-check"></i>	2 Nos. of Carbon Di Oxide fire Extinguishers (4.5Kg) at the kitchen/food items preparing stalls.<div style="padding:4px;"></div>
+                    <i class="fa fa-check"></i>	2 Nos. of ABC type Fire Extinguisher (10 Kgs) near the Electrical Main Panel and each electric power Generators.<div style="padding:4px;"></div>
+                    <i class="fa fa-check"></i>	6 Nos. of Fire Buckets filled with sand and water – 2 sets in each stall and food court areas to be provided.<div style="padding:4px;"></div>
+                    <i class="fa fa-check"></i>	Water tank of 10,000 liters capacity fitted with Hose reel system. The system should be connected with an electrical fire pump of discharge capacity 900LPM and it should be covered the entire area of the Exhibition-cum-Entertainment areas.<div style="padding:4px;"></div>
+                    <i class="fa fa-check"></i>	Fire prevention activities such as display of ‘NO SMOKING’ placards, safe electrical wiring (spark, flame proof) etc should be made.<div style="padding:4px;"></div>
+                    <i class="fa fa-check"></i>	The width of the entries, exit, space between the stalls/amusement and set backs around the place of expo should be sufficient for smooth, easy and quick movement of public.<div style="padding:4px;"></div>
+                    <i class="fa fa-check"></i>	Security personnel should be engaged for proper crowd management and proper training shall be given to them for operation of fire fighting equipments.<div style="padding:4px;"></div>
+                    <i class="fa fa-check"></i>	Materials used for preparation of stage shall be made of Non-combustible / Fire retardant materials.<div style="padding:4px;"></div>
+                    <i class="fa fa-check"></i>	The emergency exits should be maintained free of obstruction at all time during exhibition.<div style="padding:4px;"></div>
+                </p>
+                <p>
+                    <h4><b>GENERAL INSTRUCTIONS</b></h4>
+                    POLICE, Fire, PWD, Electricity Dept., and Municipality
+                    The permission/ clearance from all the above departments are dependent upon the venue, event, temporary structures and number of people attending the events. It will be taken into consideration after inspection and reporting of the line departments and the above instructions may vary accordingly as per the advice of the concerned Departments.
+                    After obtaining the NOC the event manager may obtain a temporary license by payment of prescribed fees to Municipality or communes concerned.
+
+                </p>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 col-xs-6">
+                <div class="form-group">
+                    <button class="btn btn-success" style="background-color:#008cba; color:white; border-radius:10px;" onclick="viewDetails();">View Full Rules</button>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <center>
+                    <input type="checkbox" id="rules" /><span>&nbsp;Accept Rules & Regulations</span>
+                </center>
+            </div>
+        </div>
+
+        <br />
+        <div id="check-ava" style=" display:none;">
+            <div class="row">
+
+                <center>
+                    <h4 style="color:#012970;"><b>Event Booking</b></h4><br />
+                    <br />
+                </center>
+
+
+                <div class="col-md-3">
+                    <label><b>Event Start Date *</b></label>
+                    <div style="padding:4px;"></div>
+                    <input class="form-control" id="start-booking-date" type="date" />
+                </div>
+                <div class="col-md-3">
+                    <label><b>Event Start Time *</b></label>
+                    <div style="padding:4px;"></div>
+                    <input class="form-control" id="start-booking-time" type="time" />
+                </div>
+                <div class="col-md-3">
+                    <label><b>Event End Date *</b></label>
+                    <div style="padding:4px;"></div>
+                    <input class="form-control" id="end-booking-date" type="date" />
+                </div>
+
+                <div class="col-md-3">
+                    <label><b>Event End Time *</b></label>
+                    <div style="padding:4px;"></div>
+                    <input class="form-control" id="end-booking-time" type="time" />
+                </div>
+                <div style="padding:8px;"></div>
+                <div class="col-md-3">
+                    <label><b>Place *</b></label>
+                    <div style="padding:4px;"></div>
+                    <input class="form-control" id="place" type="text" placeholder="Eg: Rock Beach" />
+                </div>
+
+                <div class="col-md-3">
+                    <label><b>Category *</b></label>
+                    <div style="padding:4px;"></div>
+                    <input class="form-control" id="category" type="text" placeholder="Eg: Music, Dance" />
+                </div>
+                <div class="col-md-3">
+                    <label><b>Additional Details</b></label>
+                    <div style="padding:4px;"></div>
+                    <input class="form-control" id="additional-details" type="text" placeholder="Additional Details" />
+                </div>
+                <!--<div class="col-md-2" id="checks" style="padding-top:32px;">
+    <button class="btn btn-warning" onclick="checkAvailability();" style="color:white;">Check Date<i class="bi bi-arrow-right"></i></button>-->
+                @*<a href="#"  class="btn btn-warning">
+            <span>Check</span>&nbsp;
+            <i class="bi bi-arrow-right"></i>
+        </a>*@
+                <!--</div>-->
+                <div class="col-md-3" id="books" style="padding-top:32px;">
+                    <button class="btn bg-success" onclick="BookData();" style="color:white;width:100%">Continue&nbsp;<i class="bi bi-arrow-right"></i></button>
+                    @*<a href="#" onclick="BookData();" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
+                <span>Book</span>&nbsp;
+                <i class="bi bi-arrow-right"></i>
+            </a>*@
+                </div>
+            </div>
+        </div>
+
+
+        <br />
+     
+    </div>
+</div>
+<script src="~/Scripts/js/BookEvent.js"></script>
+<script>
+    function viewDetails() {
+        //  alert("sdds");
+        $("#view").toggle();
+    }
+
+    const checkbox = document.getElementById('rules');
+
+    const box = document.getElementById('check-ava');
+
+    checkbox.addEventListener('click', function handleClick() {
+        if (checkbox.checked) {
+            box.style.display = 'block';
+        } else {
+            box.style.display = 'none';
+        }
+    });
+
+    var dtToday = new Date();
+
+    var month = dtToday.getMonth() + 1;
+    var day = dtToday.getDate()+7;
+    var year = dtToday.getFullYear();
+    if (month < 10)
+        month = '0' + month.toString();
+    if (day < 10)
+        day = '0' + day.toString();
+
+    var minDate = year + '-' + month + '-' + day;
+    //var maxdate = '2022' + '-' + '10' + '-' + '31';
+
+    $('#start-booking-date').attr('min', minDate)
+    $('#end-booking-date').attr('min', minDate)
+</script>

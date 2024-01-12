@@ -1,0 +1,59 @@
+﻿
+@{
+    ViewBag.Title = "Event6";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+    .event img {
+        height: 600px;
+        width: 1343px;
+    }
+
+    p {
+        padding-left: 20px;
+        /*text-align:center;*/
+    }
+    .btn-get-started {
+        line-height: 0;
+        padding: 15px 95px;
+        border-radius: 4px;
+        transition: 0.5s;
+        color: #fff;
+        background: green;
+        box-shadow: 0px 5px 30px rgba(65, 84, 241, 0.4);
+    }
+</style>
+<div class="event" data-aos="fade-up" data-aos-delay="200">
+    <img src="~/images/pobo.jpg" />
+</div>
+<div @*data-aos="fade-up" data-aos-delay="200"*@>
+    <br />
+    <p data-aos="fade-up" data-aos-delay="200">
+        <i class="fa fa-check" aria-hidden="true"></i> &nbsp;The Botanical Garden (or Jardin Botanique) in Pondicherry was established to be an elegant French garden. It’s a quiet and calming retreat for you to relax and beat the scorching heat. The gate exhibiting the grandiose of French architecture leads you to a world of greenery and peace.
+    </p>
+    <p data-aos="fade-up" data-aos-delay="200"><i class="fa fa-check" aria-hidden="true"></i> &nbsp; The garden has around 1500 plant varieties, divided into 30 sections across the garden. Giant trees and fossil plants are the highlights of the Pondicherry Botanical Garden. And with this mix of endangered and exotic plant species, Botanical Garden of Pondicherry is a haven for nature lovers.  </p>
+    <p data-aos="fade-up" data-aos-delay="200"><i class="fa fa-check" aria-hidden="true"></i> &nbsp; But the garden is also a one-stop destination for peace, relaxation and fun for tourists. Its primary objective is to promote education and spread awareness about the conservation of plants. Flower shows, training workshops, and plant sales are also carried out here. </p>
+</div>
+<div data-aos="fade-up" data-aos-delay="200" style="text-align:center;">
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-2">
+            <label style="vertical-align:middle;">Check Date Availability</label>
+        </div>
+        <div class="col-md-2">
+            <input class="form-control" type="date" />
+        </div>
+        <div class="col-md-4">
+            <a href="/Customer/Index" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
+                <span>Book Event</span>&nbsp;
+                <i class="bi bi-arrow-right"></i>
+            </a>
+        </div>
+    </div>
+</div>
+<br />
+
+
+

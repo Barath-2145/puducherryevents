@@ -1,0 +1,207 @@
+﻿@{
+    ViewBag.Title = "About";
+}
+
+
+
+<style>
+    img {
+        /*background-color:red;*/
+        height: 200px;
+        background-size: cover;
+    }
+    h3 {
+        color: #012970;
+    }
+
+    .branch img {
+        width: 300px;
+        height: 200px;
+        border-radius: 7px;
+    }
+
+    .tour p {
+        display: -webkit-box;
+        max-width: 300px;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    .tour .text-lg-start {
+        text-align: right !important;
+    }
+
+    #hero {
+        height: 40px;
+    }
+
+    .sec-title-style1 .title {
+        position: relative;
+        display: block;
+        color: #012970;
+        font-size: 36px;
+        line-height: 46px;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+
+    *, ::after, ::before {
+        box-sizing: border-box;
+    }
+
+    .text-center {
+        text-align: center !important;
+    }
+
+    .sec-title-style1 .text p {
+        position: relative;
+        display: inline-block;
+        padding: 0 15px;
+        color: #012970;
+        font-size: 14px;
+        line-height: 16px;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin: 0;
+    }
+
+    .sec-title-style1 .text .decor-left {
+        position: relative;
+        top: -2px;
+        display: inline-block;
+        width: 70px;
+        height: 5px;
+        background: transparent;
+    }
+
+    .sec-title-style1 .text .decor-right {
+        position: relative;
+        top: -2px;
+        display: inline-block;
+        width: 70px;
+        height: 5px;
+        background: transparent;
+    }
+
+    .sec-title-style1 .text .decor-left span {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 50px;
+        height: 1px;
+        background: #FFA500;
+        content: "";
+        margin: 2px 0;
+    }
+
+    .sec-title-style1 .text .decor-left::before {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 5px;
+        height: 5px;
+        background: #FFA500;
+        border-radius: 50%;
+        content: "";
+    }
+
+    .sec-title-style1 .text .decor-left::after {
+        position: absolute;
+        top: 0;
+        right: 10px;
+        bottom: 0;
+        width: 5px;
+        height: 5px;
+        background: #FFA500;
+        border-radius: 50%;
+        content: "";
+    }
+
+    .sec-title-style1 .text .decor-right::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 5px;
+        height: 5px;
+        background: #FFA500;
+        border-radius: 50%;
+        content: "";
+    }
+
+    .sec-title-style1 .text .decor-right::after {
+        position: absolute;
+        top: 0;
+        left: 10px;
+        bottom: 0;
+        width: 5px;
+        height: 5px;
+        background: #FFA500;
+        border-radius: 50%;
+        content: "";
+    }
+
+    .sec-title-style1 .text .decor-right span {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 50px;
+        height: 1px;
+        background: #FFA500;
+        content: "";
+        margin: 2px 0;
+    }
+</style>
+
+@*<section id="hero" class="hero d-flex align-items-center">
+
+
+    </section>*@
+
+
+<div class="container" id="main">
+
+    <div style="padding:80px;"></div>
+    <div class="row" data-aos="fade-up" data-aos-delay="200">
+
+        <div class="sec-title-style1 text-center max-width">
+            <div class="title">About Us</div>
+            <div class="text"><div class="decor-left"><span></span></div><p>Advantages of Puducherry</p><div class="decor-right"><span></span></div></div>
+
+        </div>
+        @*<h3 style="text-align:center;"><b>About Us</b></h3>*@
+
+    <p style="padding-left:40px;">
+        <br />
+        
+        Puducherry is a Place of history and preserved colonial charm. Sandy beaches, clean promenades, temples, monuments, heritage villas, quaint old-world town planning, spiritual mystique and a lingering  French ambience define its unique character.<br /><br />
+        Puducherry is definitely a place to unwind or just be - a great weekend getaway from Chennai or Bangalore. Further, it is in close proximity to historically renowned south Indian towns and cities known variously for their art, religious and cultural heritage as well as great natural beauty.<br /><br />
+        But it is beginning to make news as an investment destination holding forth much promise now and in the years to come in many key sectors.<br /><br />
+        We now invite you to organize  in Puducherry as well !<br /><br />
+        The Greatest advantage o  Puducherry is well established on the tourist circuit. It has many things going for it:-<br /><br />
+        •	Eco-friendly and pollution free<br /><br />
+        •	Proactive administration<br /><br />
+        •	Attractive Government incentives<br /><br />
+        •	Reliable connectivity – state of the art communications networks<br /><br />
+        •	French past and heritage – a very good marketing platform<br /><br />
+        •	Aurobindo ashram and Auroville-unique spiritual centres that draw thousands of visitors every year from round the world<br /><br />
+        •	Delightful beaches,backwaters and engaging landscapes unique to the area.<br /><br />
+        •	Stable socio-political environment<br /><br />
+        •	High socio-economic indicators<br /><br />
+        •	Skilled manpower available easily<br /><br />
+        •	Reliable power and good roads<br /><br />
+        •	Visible and growing demand for novel entertainment options and avainues<br /><br />
+        •	Projected requirement of 9,840 hotel rooms by the year 2011<br /><br />
+        •	Growing yearly tourist inflows<br />
+
+    </p>
+    </div>
+
+    
+
+
+</div>

@@ -1,0 +1,249 @@
+﻿
+@{
+    ViewBag.Title = "EventList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/Content/Owl-Carousel/owl.carousel.min.css" rel="stylesheet" />
+<script src="~/Content/Owl-Carousel/owl.carousel.js"></script>
+<link href="~/Content/Owl-Carousel/styles.css" rel="stylesheet" />
+
+<style>
+
+
+    .owl-carousel {
+        display: unset !important;
+    }
+
+    .owl-nav .owl-next {
+        display: none !important;
+    }
+
+    .owl-nav .owl-prev {
+        display: none !important;
+    }
+
+  
+    img {
+        /*background-color:red;*/
+        height: 200px;
+        background-size: cover;
+    }
+
+    .tour p {
+        display: -webkit-box;
+        max-width: 300px;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        
+    }
+
+    .tour .text-lg-start {
+        text-align: right !important;
+    }
+
+    #hero {
+        /* background-image: url('../../images/8.jpg');*/
+        background-image: url('../../images/je-taime-1.png');
+    }
+
+    .btn-get-started {
+        line-height: 0;
+        padding: 15px 95px;
+        border-radius: 4px;
+        transition: 0.5s;
+        color: #fff;
+        background: green;
+        box-shadow: 0px 5px 30px rgba(65, 84, 241, 0.4);
+    }
+
+    .sec-title-style1 .title {
+        position: relative;
+        display: block;
+        color: #012970;
+        font-size: 36px;
+        line-height: 46px;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+
+    *, ::after, ::before {
+        box-sizing: border-box;
+    }
+
+    .text-center {
+        text-align: center !important;
+    }
+
+    .sec-title-style1 .text p {
+        position: relative;
+        display: inline-block;
+        padding: 0 15px;
+        color: #012970;
+        font-size: 14px;
+        line-height: 16px;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin: 0;
+    }
+
+    .sec-title-style1 .text .decor-left {
+        position: relative;
+        top: -2px;
+        display: inline-block;
+        width: 70px;
+        height: 5px;
+        background: transparent;
+    }
+
+    .sec-title-style1 .text .decor-right {
+        position: relative;
+        top: -2px;
+        display: inline-block;
+        width: 70px;
+        height: 5px;
+        background: transparent;
+    }
+
+    .sec-title-style1 .text .decor-left span {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 50px;
+        height: 1px;
+        background: #FFA500;
+        content: "";
+        margin: 2px 0;
+    }
+
+    .sec-title-style1 .text .decor-left::before {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 5px;
+        height: 5px;
+        background: #FFA500;
+        border-radius: 50%;
+        content: "";
+    }
+
+    .sec-title-style1 .text .decor-left::after {
+        position: absolute;
+        top: 0;
+        right: 10px;
+        bottom: 0;
+        width: 5px;
+        height: 5px;
+        background: #FFA500;
+        border-radius: 50%;
+        content: "";
+    }
+
+    .sec-title-style1 .text .decor-right::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 5px;
+        height: 5px;
+        background: #FFA500;
+        border-radius: 50%;
+        content: "";
+    }
+
+    .sec-title-style1 .text .decor-right::after {
+        position: absolute;
+        top: 0;
+        left: 10px;
+        bottom: 0;
+        width: 5px;
+        height: 5px;
+        background: #FFA500;
+        border-radius: 50%;
+        content: "";
+    }
+
+    .sec-title-style1 .text .decor-right span {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 50px;
+        height: 1px;
+        background: #FFA500;
+        content: "";
+        margin: 2px 0;
+    }
+</style>
+<!--<section id="hero" class="hero d-flex align-items-center">
+
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-6 hero-img" data-aos="zoom-out" data-aos-delay="200">-->
+@*<img src="~/images/Pondicherrycollege.png" />*@
+<!--</div>
+        </div>
+    </div>
+
+</section>-->
+<br />
+<br />
+<div id="main">
+
+    <section id="values" class="values">
+        <div class="sec-title-style1 text-center max-width">
+            <div class="title">Event Lists</div>
+            <div class="text"><div class="decor-left"><span></span></div><p>Check out the events for booking</p><div class="decor-right"><span></span></div></div>
+
+        </div>
+
+
+        <script type="text/template" id="list-item-template">
+
+            <div id="fill" style=" border-radius:12px; text-align:center; background-color:#a9c4f794; width:96%; height:345px;">
+                <br />
+                <div class="d-flex justify-content-center align-items-center">
+                    <img src='{{eventimage}}' style="height:160px; width:80%; border-radius:12px;"><br />
+                </div>
+                <br />
+                <div class="justify-content-center align-items-center">
+                    <h4> {{eventname}}</h4><br />
+                    <div class="tour">
+                        <center>
+                            <p>{{eventdescription}}</p>
+                        </center>
+                    </div>
+                    <div class="text-center text-lg-start">
+
+                        <a href="#" onclick="eventView({{rid}})" class="">
+                            <span>Choose Place</span>
+                            <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                    <br>
+                </div>
+            </div>
+           
+
+        </script>
+
+
+        <div class="container">
+
+            <div id="list-template-container" class="row owl-carousel">
+
+            </div>
+
+            <br />
+
+
+        </div>
+
+    </section>
+</div>
+
+<script src="~/Scripts/js/EventClient.js"></script>

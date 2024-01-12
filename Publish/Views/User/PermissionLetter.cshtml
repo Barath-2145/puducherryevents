@@ -1,0 +1,415 @@
+﻿
+@{
+    //ViewBag.Title = "Letter";
+    //Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var userName = Context.Request.Form["username"];
+
+    var role = Context.Request.Form["role"];
+    
+        Layout = "~/Views/Shared/_UserLayout.cshtml";
+    
+}
+
+<style>
+
+    .table.dataTable th {
+        text-align: center;
+    }
+
+    table.dataTable thead tr {
+        background-color: gray;
+        color: white;
+    }
+
+    .action-buttons {
+        min-width: 100px !important;
+    }
+
+
+
+    .save .btn-get-started {
+        margin-top: 30px;
+        line-height: 0;
+        padding: 15px 65px;
+        border-radius: 4px;
+        transition: 0.5s;
+        color: #fff;
+        background: green;
+        box-shadow: 0px 5px 30px rgba(65, 84, 241, 0.4);
+    }
+
+    .cancel .btn-get-started {
+        margin-top: 30px;
+        line-height: 0;
+        padding: 15px 65px;
+        border-radius: 4px;
+        transition: 0.5s;
+        color: #fff;
+        background: red;
+        box-shadow: 0px 5px 30px rgba(65, 84, 241, 0.4);
+    }
+
+    .back .btn-get-started {
+        margin-top: 30px;
+        line-height: 0;
+        padding: 15px 65px;
+        border-radius: 4px;
+        transition: 0.5s;
+        color: #fff;
+        background: blue;
+        box-shadow: 0px 5px 30px rgba(65, 84, 241, 0.4);
+    }
+
+    .dataTables_scrollHead {
+        width: 100% !important;
+    }
+
+    #cancel-customer-button,
+    #save-customer-button,
+    #update-customer-button {
+        color: white;
+        border-radius: 8px;
+        padding: 8px;
+    }
+
+    .select2-container .select2-selection--single {
+        height: 33px;
+        box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    }
+
+    select2-container--default .select2-selection--single {
+        background-color: black;
+    }
+
+    .sec-title-style1 .title {
+        position: relative;
+        display: block;
+        color: #012970;
+        font-size: 36px;
+        line-height: 46px;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+
+    *, ::after, ::before {
+        box-sizing: border-box;
+    }
+
+    .text-center {
+        text-align: center !important;
+    }
+
+    .sec-title-style1 .text p {
+        position: relative;
+        display: inline-block;
+        padding: 0 15px;
+        color: #012970;
+        font-size: 14px;
+        line-height: 16px;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin: 0;
+    }
+
+    .sec-title-style1 .text .decor-left {
+        position: relative;
+        top: -2px;
+        display: inline-block;
+        width: 70px;
+        height: 5px;
+        background: transparent;
+    }
+
+    .sec-title-style1 .text .decor-right {
+        position: relative;
+        top: -2px;
+        display: inline-block;
+        width: 70px;
+        height: 5px;
+        background: transparent;
+    }
+
+    .sec-title-style1 .text .decor-left span {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 50px;
+        height: 1px;
+        background: #FFA500;
+        content: "";
+        margin: 2px 0;
+    }
+
+    .sec-title-style1 .text .decor-left::before {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 5px;
+        height: 5px;
+        background: #FFA500;
+        border-radius: 50%;
+        content: "";
+    }
+
+    .sec-title-style1 .text .decor-left::after {
+        position: absolute;
+        top: 0;
+        right: 10px;
+        bottom: 0;
+        width: 5px;
+        height: 5px;
+        background: #FFA500;
+        border-radius: 50%;
+        content: "";
+    }
+
+    .sec-title-style1 .text .decor-right::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 5px;
+        height: 5px;
+        background: #FFA500;
+        border-radius: 50%;
+        content: "";
+    }
+
+    .sec-title-style1 .text .decor-right::after {
+        position: absolute;
+        top: 0;
+        left: 10px;
+        bottom: 0;
+        width: 5px;
+        height: 5px;
+        background: #FFA500;
+        border-radius: 50%;
+        content: "";
+    }
+
+    .sec-title-style1 .text .decor-right span {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 50px;
+        height: 1px;
+        background: #FFA500;
+        content: "";
+        margin: 2px 0;
+    }
+
+    .container {
+        max-width: 1274px;
+    }
+
+    .application {
+        border: 2px solid #012970;
+        padding: 50px;
+        margin: 20px;
+    }
+</style>
+<div style="padding:60px;"></div>
+<div class="col-md-12" style="margin: 0; padding: 0;">
+    <div class="container" @*class="panel panel-default shadow"*@>
+        <div @*class="panel-heading"*@>
+            <!--<div class="row" style="text-align: center;">-->
+            @*<div class="col-md-10">
+                    <b  style="font-size:24px; color:#012970;">
+                        Customer Verification
+                        <span id="title"></span>
+                    </b>
+                </div>*@
+
+
+            <!--</div>-->
+            <div id="cv" class="sec-title-style1 text-center max-width">
+                <div class="title">Permission Letter</div>
+                <div id="cl" class="text"><div class="decor-left"><span></span></div><p>Downlaod Permission Letter</p><div class="decor-right"><span></span></div></div>
+
+            </div>
+        </div>
+        <br />
+
+        <div id="letter-customer-form" data-aos="fade-up" data-aos-delay="200" >
+
+           
+
+            <br />
+            <button class="btn btn-primary" onclick="onExportClick();" id="exportpdf">Download Permission Letter</button>
+            <br />
+            <div class="container" id="divToExport" style="padding-left:20px; color:black;">
+
+                <center>
+                    <h3> GOVERNMENT OF PUDUCHERRY</h3>
+                    <h4>OFFICE OF THE DISTRICT COLLECTOR CUM DISTRICT MAGISTRATE</h4>
+                    ***
+                </center>
+                <br />
+                No. 1458/DM/RO/TAH/D2/2022 <br />
+                <span class="text-right">Puducherry, dt.&nbsp; <span id="today-date"></span></span>
+                <br />
+                <br />
+                To<br />
+                <span id="customer-name"></span>,<br />
+                <span id="organization"></span>,<br />
+                <span id="address"></span>.
+                <br />
+                <br />
+                Sir,<br />
+                <b>Sub:</b> DM - Issue of NOC to conduct the celebration of <span id="event-name"></span> &nbsp;in&nbsp;<span id="event-place"></span>&nbsp;on&nbsp;<span id="start-date"></span> &nbsp;to&nbsp; <span id="end-date"></span> -Reg
+                <br />
+                <br />
+                <b>Ref:</b> Letter dt <span id="created-date"></span> recieved on <span id="approved-date"></span>&nbsp; from the <span id="organization-name"></span>
+                <br />
+                <center>***</center>
+                <br />
+                It is informed that the District Authority has No Objection to grant permission to organize the celebration of <span id="events-name"></span> at <span id="place-name"></span> by <span id="organized"></span><br />
+                on <span id="start"></span>&nbsp;to&nbsp;<span id="end"></span>, subject to the following conditions.<br />
+                <br />
+
+                a) Wearing of face masks to be mandatory to the audience and the workers/organisers. Further, the organisers shall provide face mask free of cost to the audience.<br />
+
+                b) Hand sanitizers should be placed at the entry of premises and guests must be advised to use the sanitizers compulsorily.<br />
+
+                c) Devotees should be allowed into the premises only after checking their body temperature.<br />
+
+                d) Covid-19 awareness boards should be displayed in various places.<br />
+
+                e) Social distancing should be ensured at all times in the premises and awareness boards
+
+                should be displayed at various places.<br />
+
+                f) Proper cleaning and frequent sanitization of the premises should be ensured.<br />
+
+                g) Proper entry and exit ways to be exhibited without any hindrance to the public.<br />
+
+                h) Proper parking space should be arranged by the organizer and should be regulated by the
+
+                Traffic Police.<br />
+
+
+                i) Premises should be neat and necessary arrangements to be made to keep the place clean and adequate dustbins to be provided.<br />
+
+                j) Water tankers and fire safety equipments should be provided to control the fire accident if
+
+                any as directed by the Fire Service Department.<br />
+
+                k) Clean drinking water to be provided to the public.<br />
+
+                l) Separate toilet facility for men & women should be made available at the event side.<br />
+
+                m) No fire or electric related games should be conducted.<br />
+
+                n) A team of medical officers should also be available in case of exigencies.<br />
+
+                o) The loud speakers shall not cause nuisance to the neighbors. Further a help centre with proper sound system facilities to be ensured by the organisers.<br />
+
+                p) Adequate police arrangements may be made at the event side to avoid any law and order issues.<br />
+
+                q) Proper lighting shall be arranged in the access road.<br />
+
+                r) The conditions specified in NOC dt. <span id="today2-date"></span> of the Divisional Fire Officer, Puducherry shall be strictly adhered to;<br />
+
+
+                <i class="fa fa-angle-double-right"></i>1 No. of Carbon Di Oxide fire Extinguishers (6Kg) at each entrance and exit points.<br />
+
+                <i class="fa fa-angle-double-right"></i>2 Nos. of Dry Chemical Powder Fire Extinguisher (6 kg) at each row of craft and
+
+                kitchen/food items preparing stalls.<br />
+
+                <i class="fa fa-angle-double-right"></i>2 No. of Dry chemical power Fire Extinguisher (10 kgs.) near the electrical main panel and the Generators.<br />
+
+                <i class="fa fa-angle-double-right"></i>4 Nos. of Fire buckets (9 litres capacity) filled with sand and water in separate buckets shall be provided in the easily accessible and visible locations at the entrance of every row of stalls.<br />
+
+                <i class="fa fa-angle-double-right"></i> Water tank of 10,000 liters capacity fitted with Hose Reel system covering the entire area connected with Fire Pump of 900 LPM exclusively for firefighting purpose.<br />
+
+                <i class="fa fa-angle-double-right"></i>Fire prevention activities such as display of "NO SMOKING" placards, safe electrical wiring (spark, flame proof) etc should be made. The electrical wire joints and tapping should be properly insulated.<br />
+
+                <i class="fa fa-angle-double-right"></i> Adequate security personnel to be engaged for proper crowd management and proper training should be given to them for the operation of fire fighting equipments in case of any exigency.<br />
+
+                <i class="fa fa-angle-double-right"></i> Materials used for preparation of stalls should be made of Non-combustible/Fire Retardant materials.<br />
+
+                <i class="fa fa-angle-double-right"></i> Preparation of food items to be avoided in the stalls and should be made at the safe distance from the stalls.<br />
+
+                <i class="fa fa-angle-double-right"></i> The emergency exists should be maintained free of obstruction in all time during the event.<br />
+
+                s) The Superintendent of Police (Traffic), Puducherry vide dt. <span id="today3-date"></span> has stated that location for the event was inspected and the organizer had made separate parking space for the vehicles and hence recommended for the conduct of the said event.<br />
+
+                t) The Superintendent of Police (North), Puducherry vide letter No. 2125/GR/SPN/2022, dt. <span id="today4-date"></span> has stated that location for the event was inspected and suggested the organizer to install CCTV cameras at function place, entrance, exit and to employee volunteers to identify passess to VIPs for smooth functioning of the event.<br />
+
+                u) The Executive Engineer, PWD, Puducherry vide letter No. 09/PW/BRC/EE/PA/2022, dt. <span id="today5-date"></span> has stated that location for the event was inspected and the department has No objection and the structural stability of the stage will be ensured by the Department.<br />
+
+                v) All other safety norms and COVID-19 guidelines issued by the Government of India and Government of Puducherry with respect to events must be strictly complied with. The organizer should abide by any other conditions as and when ordered by this District Administration.<br />
+
+                <br />
+
+                Copy to:<br />
+
+                PUDUCHERRY
+
+                1) The Sub-Divisional Magistrate (North), Puducherry.<br />
+
+                2) The Chief Engineer, PWD, Puducherry<br />
+
+                3) The Superintendent of Police (North/Traffic), Puducherry.<br />
+
+                4) The Commissioner, Oulgaret Municipality<br />
+
+                5) The Divisional Fire Officer, Puducherry.<br />
+            </div>
+
+            
+            <br />
+        </div>
+    </div>
+</div>
+<input type="hidden" id="login-name" value='@userName'>
+<script src="~/Scripts/html2pdf.js"></script>
+<script src="~/Scripts/js/UserLetter.js"></script>
+
+<script>
+
+   
+    var userLetterComponent = null;
+
+    $(function () {
+        
+     userLetterComponent = new PBUserLetterComponent("letter-customer-form"); //, "/ApiUser/SaveUser");
+
+        userLetterComponent.dataURL = "ApiCustomer/GetLetterDetails";
+
+
+        //letterCustomerFormComponent.onVerifyCompleted = function () {
+        //    letterCustomerListComponent.getData();
+        //    letterCustomerListComponent.show();
+        //    letterCustomerFormComponent.hide();
+        //}
+
+        //letterCustomerFormComponent.onCancelled = function () {
+        //    letterCustomerListComponent.show();
+        //    letterCustomerFormComponent.hide();
+        //    $("#add-customer").show();
+        //    $("#ul").show();
+        //    $("#cl").show();
+        //    $("#title").html("");
+
+        //}
+
+        //letterCustomerListComponent.onEditClicked = function (recToEdit) {
+        //    $("#cl").hide();
+        //    letterCustomerListComponent.hide();
+        //    letterCustomerFormComponent.show();
+        //    letterCustomerFormComponent.populateData(recToEdit);
+
+
+
+        //}
+
+    })
+
+</script>
+

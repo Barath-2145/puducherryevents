@@ -1,0 +1,57 @@
+﻿
+@{
+    ViewBag.Title = "Event5";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+    .event img {
+        height: 600px;
+        width: 1343px;
+    }
+
+    p {
+        padding-left: 20px;
+        /*text-align:center;*/
+    }
+    .btn-get-started {
+        line-height: 0;
+        padding: 15px 95px;
+        border-radius: 4px;
+        transition: 0.5s;
+        color: #fff;
+        background: green;
+        box-shadow: 0px 5px 30px rgba(65, 84, 241, 0.4);
+    }
+</style>
+<div class="event" data-aos="fade-up" data-aos-delay="200">
+    <img src="~/images/marina.jpg" />
+   
+</div>
+<div @*data-aos="fade-up" data-aos-delay="200"*@>
+    <br />
+    <p data-aos="fade-up" data-aos-delay="200">
+        <i class="fa fa-check" aria-hidden="true"></i> &nbsp;Pondy Marina beach in Pondicherry is the new attraction for tourists that is located near the new lighthouse. It was developed under the theme-based beaches programs by the Pondicherry government and “Pondy Marina” beach is based on a food-based theme.
+    </p>
+    <p data-aos="fade-up" data-aos-delay="200"><i class="fa fa-check" aria-hidden="true"></i> &nbsp; Pondy Marina beach is located at Dubrayanpet, which is 1.5km from the White town, Pondicherry. Unlike the rock beach, where the tourists can hardly venture into the seashores, here as the name suggests it has a reasonable length of sandy beach.   </p>
+    <p data-aos="fade-up" data-aos-delay="200"><i class="fa fa-check" aria-hidden="true"></i> &nbsp; One of the advantages of Pondy Marina is that it offers you different varieties of food at a reasonable price and at the same time you will enjoy the food under the moonlight with the soothing breeze from of sea. </p>
+</div>
+<div data-aos="fade-up" data-aos-delay="200" style="text-align:center;">
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-2">
+            <label style="vertical-align:middle;">Check Date Availability</label>
+        </div>
+        <div class="col-md-2">
+            <input class="form-control" type="date" />
+        </div>
+        <div class="col-md-4">
+            <a href="/Customer/Index" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
+                <span>Book Event</span>&nbsp;
+                <i class="bi bi-arrow-right"></i>
+            </a>
+        </div>
+    </div>
+</div>
+<br />

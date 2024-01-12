@@ -1,0 +1,403 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        font-family: Arial;
+    }
+
+
+
+    .header {
+        text-align: center;
+        padding: 32px;
+    }
+
+    .row {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        padding: 0 4px;
+    }
+
+
+    .column {
+        -ms-flex: 25%;
+        flex: 25%;
+        max-width: 25%;
+        padding: 0 4px;
+    }
+
+    .column img {
+        margin-top: 8px;
+        vertical-align: middle;
+        border-radius: 12px;
+    }
+
+    #hero {
+        /*background-image: url('../../images/Tourist-attractions-of-Pondicherry.png');*/
+        /* background-image: url('../../images/8.jpg');*/
+        background-image: url('../../images/27355855_1695195130541780_1051434069182653158_o.jpg');
+        /*  background-image: url('../../images/pondicherry logo.gif');
+        background-size: 1340px 686px;
+    */
+    }
+
+
+    @@media screen and (max-width: 800px) {
+        .column {
+            -ms-flex: 50%;
+            flex: 50%;
+            max-width: 50%;
+        }
+    }
+
+    @@media screen and (max-width: 600px) {
+        .column {
+            -ms-flex: 100%;
+            flex: 100%;
+            max-width: 100%;
+        }
+    }
+
+    .sec-title-style1 .title {
+        position: relative;
+        display: block;
+        color: #012970;
+        font-size: 36px;
+        line-height: 46px;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+
+    *,
+    ::after,
+    ::before {
+        box-sizing: border-box;
+    }
+
+    .text-center {
+        text-align: center !important;
+    }
+
+    .sec-title-style1 .text p {
+        position: relative;
+        display: inline-block;
+        padding: 0 15px;
+        color: #012970;
+        font-size: 14px;
+        line-height: 16px;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin: 0;
+    }
+
+    .sec-title-style1 .text .decor-left {
+        position: relative;
+        top: -2px;
+        display: inline-block;
+        width: 70px;
+        height: 5px;
+        background: transparent;
+    }
+
+    .sec-title-style1 .text .decor-right {
+        position: relative;
+        top: -2px;
+        display: inline-block;
+        width: 70px;
+        height: 5px;
+        background: transparent;
+    }
+
+    .sec-title-style1 .text .decor-left span {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 50px;
+        height: 1px;
+        background: #FFA500;
+        content: "";
+        margin: 2px 0;
+    }
+
+    .sec-title-style1 .text .decor-left::before {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 5px;
+        height: 5px;
+        background: #FFA500;
+        border-radius: 50%;
+        content: "";
+    }
+
+    .sec-title-style1 .text .decor-left::after {
+        position: absolute;
+        top: 0;
+        right: 10px;
+        bottom: 0;
+        width: 5px;
+        height: 5px;
+        background: #FFA500;
+        border-radius: 50%;
+        content: "";
+    }
+
+    .sec-title-style1 .text .decor-right::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 5px;
+        height: 5px;
+        background: #FFA500;
+        border-radius: 50%;
+        content: "";
+    }
+
+    .sec-title-style1 .text .decor-right::after {
+        position: absolute;
+        top: 0;
+        left: 10px;
+        bottom: 0;
+        width: 5px;
+        height: 5px;
+        background: #FFA500;
+        border-radius: 50%;
+        content: "";
+    }
+
+    .sec-title-style1 .text .decor-right span {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 50px;
+        height: 1px;
+        background: #FFA500;
+        content: "";
+        margin: 2px 0;
+    }
+
+    .tech-slideshow {
+        height: 8px;
+        max-width: 1400px;
+        margin: 0 auto;
+        position: relative;
+        overflow: hidden;
+        transform: translate3d(0, 0, 0);
+    }
+
+    .tech-slideshow>td {
+        /*height: 200px;*/
+        width: 1400px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        /*  height: 100%;*/
+        transform: translate3d(0, 0, 0);
+    }
+
+    .tech-slideshow .mover-1 {
+        animation: moveSlideshow 10s linear infinite;
+    }
+
+    @@keyframes moveSlideshow {
+        100% {
+            transform: translateX(-66.6666%);
+        }
+    }
+
+    .container-fluid img {
+        background: fixed;
+    }
+</style>
+
+<!-- Photo Grid -->
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<div class="container-fluid">
+    <img src="~/images/gandhi.jpg" style="height:350px; width:100%; border-radius:20px;" />
+</div>
+<br />
+<div class="sec-title-style1 text-center max-width">
+    <br />
+    <div class="title">Puducherry Events</div>
+    <div class="text">
+        <div class="decor-left"><span></span></div>
+        <p>What's On this Site</p>
+        <div class="decor-right"><span></span></div>
+    </div>
+    <br />
+</div>
+<div class="container">
+
+    <center>
+        <h2>Permission Required For Conducting an Event in Puducherry</h2>
+    </center>
+    <br />
+    <p style="font-size:18px;">
+        If you are one organizer planning to run a public event in Puducherry in any common places, you will need to
+        obtain permissions from many Departments starting from SUB DIVISIONAL MAGISTRATE (SDM), Police, Fire, PWD and
+        Municipality Department. <br /><br />
+
+        No-Objection Certificates have to be obtained from all these Departments:<br /><br />
+
+        • SUB DIVISIONAL MAGISTRATE (SDM),<br /><br />
+        • Police Department,<br /><br />
+        • Fire Department,<br /><br />
+        • Public Work Department <br /><br />
+        • Electricity Department and<br /><br />
+        • Municipality Department.<br /><br />
+
+        This Website will provide one stop consolidationto obtain permission from all the Government Departments in one
+        step.<br /><br />
+
+        Applying for permission to hold an event, and you need to provide<br /><br />
+
+        To apply for permission to hold a public event, you will need to submit the details in the specified forms and
+        submit an event plan. The event plan should include the following information:<br /><br />
+
+        • The type of event that is proposed<br /><br />
+        • How it is organised<br /><br />
+        • A risk assessment - the measures you will take to make sure any potential and foreseeable risks are being
+        addressed - whether to those taking part in, or watching, the event<br /><br />
+        • How you'll lessen any effects (such as noise or other nuisance) that your event may have on other
+        people<br /><br />
+        • A site map and event layout<br /><br />
+        The amount of information you need to give in your plan will depend on the type of event you are
+        proposing.<br /><br />
+        You should submit your application and event plan to the website as early as possible before your event is
+        planned to take place.<br /><br />
+
+    </p>
+
+
+</div>
+
+<!--<div class="container">
+    <div class="row">
+        <div class="sec-title-style1 text-center max-width">
+            <br />
+            <div class="title">Gallery</div>
+            <div class="text"><div class="decor-left"><span></span></div><p>Tourist Places in Pondicherry</p><div class="decor-right"><span></span></div></div>
+            <br />
+        </div>-->
+@*<div>
+    <br />
+    <h1 style="text-align:center">Gallery of Tourist Places</h1>
+    <p style="text-align:center;">
+    Pondicherry is mainly a city for the explorers. The city gives you the opportunity to explore a French town in India,
+    which is an exciting endeavour in itself.
+    </p>
+    <br />
+    </div>*@
+<!--<div class="column">
+            <img data-aos="fade-up" data-aos-delay="200" src="~/images/1.jpg" style="width:100%" />
+            <img data-aos="fade-up" data-aos-delay="200" src="~/images/10.jpg" style="width:100%" />
+            <img data-aos="fade-up" data-aos-delay="200" src="~/images/2.jpg" style="width:100%" />
+            <img data-aos="fade-up" data-aos-delay="200" src="~/images/3.jpg" style="width:100%" />
+            <img data-aos="fade-up" data-aos-delay="200" src="~/images/5.JPG" style="width:100%" />
+            <img data-aos="fade-up" data-aos-delay="200" src="~/images/6.jpg" style="width:100%" />
+
+        </div>
+        <div class="column">
+            <img data-aos="fade-up" data-aos-delay="200" src="~/images/8.jpg" style="width:100%" />
+            <img data-aos="fade-up" data-aos-delay="200" src="~/images/AnnaThidal.jpeg" style="width:100%" />
+            <img data-aos="fade-up" data-aos-delay="200" src="~/images/ashram.jpg" style="width:100%" />
+            <img data-aos="fade-up" data-aos-delay="200" src="~/images/aurovillebeach.JPG" style="width:100%" />
+            <img data-aos="fade-up" data-aos-delay="200" src="~/images/beach.jpg" style="width:100%" />
+            <img data-aos="fade-up" data-aos-delay="200" src="~/images/marina.jpg" style="width:100%" />
+
+        </div>
+        <div class="column">
+            <img data-aos="fade-up" data-aos-delay="200" src="~/images/chunnambar.jpg" style="width:100%" />
+            <img data-aos="fade-up" data-aos-delay="200" src="~/images/frenchwarmemorial.jpg" style="width:100%" />
+            <img data-aos="fade-up" data-aos-delay="200" src="~/images/harbour.jpg" style="width:100%" />
+            <img data-aos="fade-up" data-aos-delay="200" src="~/images/le-cafe-250x250.png" style="width:100%" />
+            <img data-aos="fade-up" data-aos-delay="200" src="~/images/lighthouse.jpg" style="width:100%" />
+
+        </div>
+        <div class="column">
+            <img data-aos="fade-up" data-aos-delay="200" src="~/images/12.jpg" style="width:100%" />
+            <img data-aos="fade-up" data-aos-delay="200" src="~/images/lecafe.jpg" style="width:100%" />
+            <img data-aos="fade-up" data-aos-delay="200" src="~/images/pobo.jpg" style="width:100%" />
+            <img data-aos="fade-up" data-aos-delay="200" src="~/images/museum.jpg" style="width:100%" />
+            <img data-aos="fade-up" data-aos-delay="200" src="~/images/7.jpg" style="width:100%" />
+            <img data-aos="fade-up" data-aos-delay="200" src="~/images/botanical.JPG" style="width:100%" />
+        </div>
+
+    </div>
+</div>-->
+<div style="padding:8px;"></div>
+@*<div>
+    <h3 style="text-align:center;">Latest News</h3>
+    <table>
+    <tr class="tech-slideshow">
+    <td class="mover-1">
+    The city is in the Puducherry district on the southeast coast of India and is surrounded by the state of Tamil Nadu,
+    with which it shares most of its culture, heritage, and language.
+    </td>
+    </tr>
+    </table>
+    </div>*@
+
+@*<div style="text-align:center;"><h4> Latest News</h4></div>*@
+
+<div class="sec-title-style1 text-center max-width">
+    <br />
+    <div class="title">Latest News</div>
+    <div class="text">
+        <div class="decor-left"><span></span></div>
+        <p>News about events and tourist places</p>
+        <div class="decor-right"><span></span></div>
+    </div>
+    <br />
+</div>
+<script type="text/template" id="list-item-template">
+
+    <div class="col-md-12">
+        <div>
+            <table width="100%">
+                <tr class="tech-slideshow">
+                    <td class="mover-1" valign="top">
+
+                        <div class="box">
+                            <p> {{news}}</p>
+
+                        </div>
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+</script>
+
+
+<div class="container">
+
+    <div id="list-template-container" class="row">
+
+    </div>
+
+    <br />
+
+
+</div>
+
+<br />
+<script src="~/Scripts/js/News.js"></script>

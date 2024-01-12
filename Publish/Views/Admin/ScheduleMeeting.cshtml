@@ -1,0 +1,496 @@
+﻿
+@{
+    ViewBag.Title = "ScheduleMeeting";
+    Layout = "~/Views/Shared/_SuperAdminLayout.cshtml";
+}
+
+
+<style>
+
+    .table.dataTable th {
+        text-align: center;
+    }
+
+    table.dataTable thead tr {
+        background-color: gray;
+        color: white;
+    }
+
+    .action-buttons {
+        min-width: 100px !important;
+    }
+
+    .update .btn-get-started {
+        margin-top: 30px;
+        line-height: 0;
+        padding: 15px 67px;
+        border-radius: 4px;
+        transition: 0.5s;
+        color: #fff;
+        background: yellow;
+        box-shadow: 0px 5px 30px rgba(65, 84, 241, 0.4);
+    }
+
+    .save .btn-get-started {
+        margin-top: 30px;
+        line-height: 0;
+        padding: 15px 76px;
+        border-radius: 4px;
+        transition: 0.5s;
+        color: #fff;
+        background: green;
+        box-shadow: 0px 5px 30px rgba(65, 84, 241, 0.4);
+    }
+
+    .cancel .btn-get-started {
+        margin-top: 30px;
+        line-height: 0;
+        padding: 15px 69px;
+        border-radius: 4px;
+        transition: 0.5s;
+        color: #fff;
+        background: red;
+        box-shadow: 0px 5px 30px rgba(65, 84, 241, 0.4);
+    }
+
+    .sec-title-style1 .title {
+        position: relative;
+        display: block;
+        color: #012970;
+        font-size: 36px;
+        line-height: 46px;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+
+    *, ::after, ::before {
+        box-sizing: border-box;
+    }
+
+    .text-center {
+        text-align: center !important;
+    }
+
+    .sec-title-style1 .text p {
+        position: relative;
+        display: inline-block;
+        padding: 0 15px;
+        color: #012970;
+        font-size: 14px;
+        line-height: 16px;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin: 0;
+    }
+
+    .sec-title-style1 .text .decor-left {
+        position: relative;
+        top: -2px;
+        display: inline-block;
+        width: 70px;
+        height: 5px;
+        background: transparent;
+    }
+
+    .sec-title-style1 .text .decor-right {
+        position: relative;
+        top: -2px;
+        display: inline-block;
+        width: 70px;
+        height: 5px;
+        background: transparent;
+    }
+
+    .sec-title-style1 .text .decor-left span {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 50px;
+        height: 1px;
+        background: #FFA500;
+        content: "";
+        margin: 2px 0;
+    }
+
+    .sec-title-style1 .text .decor-left::before {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 5px;
+        height: 5px;
+        background: #FFA500;
+        border-radius: 50%;
+        content: "";
+    }
+
+    .sec-title-style1 .text .decor-left::after {
+        position: absolute;
+        top: 0;
+        right: 10px;
+        bottom: 0;
+        width: 5px;
+        height: 5px;
+        background: #FFA500;
+        border-radius: 50%;
+        content: "";
+    }
+
+    .sec-title-style1 .text .decor-right::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 5px;
+        height: 5px;
+        background: #FFA500;
+        border-radius: 50%;
+        content: "";
+    }
+
+    .sec-title-style1 .text .decor-right::after {
+        position: absolute;
+        top: 0;
+        left: 10px;
+        bottom: 0;
+        width: 5px;
+        height: 5px;
+        background: #FFA500;
+        border-radius: 50%;
+        content: "";
+    }
+
+    .sec-title-style1 .text .decor-right span {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 50px;
+        height: 1px;
+        background: #FFA500;
+        content: "";
+        margin: 2px 0;
+    }
+
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        font-family: sans-serif;
+    }
+
+    .item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 16px;
+    }
+
+        .item label {
+            display: flex;
+            margin: auto;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+        }
+
+    .check input {
+        position: absolute;
+        transform: scale(0);
+    }
+
+        .check input:checked ~ .checkbox {
+            transform: rotate(45deg);
+            width: 10px;
+            margin: -5px 7px 0 -15px;
+            border-color: #24c78e;
+            border-width: 4px;
+            border-top-color: transparent;
+            border-left-color: transparent;
+            border-radius: 0;
+        }
+
+    .checkbox {
+        display: block;
+        width: inherit;
+        height: inherit;
+        border: 2px solid #999;
+        border-radius: 4px;
+        transition: all 0.2s cubic-bezier(0, 0.01, 0.23, 0.8);
+    }
+
+    .container {
+        max-width: 1274px;
+    }
+
+    .add .btn-get-started {
+        margin-top: 30px;
+        line-height: 0;
+        padding: 15px 25px;
+        border-radius: 4px;
+        transition: 0.5s;
+        color: #fff;
+        background: green;
+        /*box-shadow: 0px 5px 30px rgba(65, 84, 241, 0.4);*/
+        margin-left: 198px;
+    }
+</style>
+
+<br />
+<br />
+<br />
+
+<div class="col-md-12" style="margin: 0; padding: 0;">
+    <div class="container" @*class="panel panel-default shadow"*@>
+        <div @*class="panel-heading"*@>
+            <!--</div>-->
+            <div class="sec-title-style1 text-center max-width">
+                <div class="title">Meeting</div>
+                <div id="ul" class="text"><div class="decor-left"><span></span></div><p>Meeting List</p><div class="decor-right"><span></span></div></div>
+
+            </div>
+            @*<div class="row">
+                    <div class="col-md-10"></div>
+                    <div class="col-md-2">
+
+                        <b class="pull-right" id="add-department-button" onclick="addDepartment(this); return false;" style="font-size:24px; color:green;">
+                            <i class="fa fa-plus-circle" style="font-size: 24px; color: green;"></i> Add New
+
+                        </b>
+                    </div>
+                </div>*@
+            <div class="row">
+                <div class="col-md-10"></div>
+                <div id="add" class="add col-md-2">
+                    <button onclick="addMeeting(this); return false;" class="btn bg-success" style="color:white; width:189px;">Create Meeting</button>
+                </div>
+                <div style="padding:4px;"></div>
+            </div>
+        </div>
+
+        <div @*class="panel-body" style="padding:8px; margin:0;"*@>
+            <div id="meeting-list">
+                @*<table id="customer-grid" class="table table-striped table-bordered" style="width:100%">*@
+                <table id="meeting-grid" class="table table-striped table-bordered" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Place</th>
+                            <th>Date</th>
+                            <th>Start Time</th>
+                            <th>End Time</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+
+                </table>
+            </div>
+
+        </div>
+        <div id="meeting-form" style="display:none;">
+            <div id="new-form">
+                <div class="row">
+
+                    <div class="col-md-3">
+                        <label><b>Organizer Name*</b></label>
+                        <div style="padding: 4px"></div>
+                        <select id="customer-name" class="form-control"></select>
+                    </div>
+                    <div class="col-md-3">
+                        <label><b>Date of Meeting*</b></label>
+                        <div style="padding: 4px"></div>
+                        <input class="form-control" id="meeting-date" type="date" />
+                    </div>
+                    <div class="col-md-3">
+                        <label><b>Start Time of Meeting*</b></label>
+                        <div style="padding: 4px"></div>
+                        <input class="form-control" id="start-time" type="time" />
+                    </div>
+                    <div class="col-md-3">
+                        <label><b>End Time of Meeting*</b></label>
+                        <div style="padding: 4px"></div>
+                        <input class="form-control" id="end-time" type="time" />
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-md-3">
+                        <label><b>Place of Meeting*</b></label>
+                        <div style="padding: 4px"></div>
+                        <input class="form-control" id="place" type="text" placeholder="Enter Place" />
+                    </div>
+                    <div class="col-md-3">
+                        <label><b>Purpose of Meeting*</b></label>
+                        <div style="padding: 4px"></div>
+                        <textarea id="purpose-meeting" style="width:100%;"></textarea>
+                    </div>
+                   
+                </div>
+
+                <div class="row">
+                    <label><b>Check Departments to attend the Meeting*</b></label>
+                    <div style="padding:4px;"></div>
+                    <div id="all-dept"></div>
+                </div>
+            </div>
+            <div id="meeting-detail" style="display:none;">
+                <div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label><b>Organizer Name</b></label>
+                            <div style="padding:4px;"></div>
+                            <span id="organizer"></span>
+                        </div>
+                        <div class="col-md-4">
+                            <label><b>Meeting Date</b></label>
+                            <div style="padding:4px;"></div>
+                            <span id="date-meeting"></span>
+                        </div>
+                        <div class="col-md-4">
+                            <label><b>Start Time</b></label>
+                            <div style="padding:4px;"></div>
+                            <span id="from-time"></span>
+                        </div>
+                        <div style="padding:8px;"></div>
+                        <div class="col-md-4">
+                            <label><b>End Time</b></label>
+                            <div style="padding:4px;"></div>
+                            <span id="to-time"></span>
+                        </div>
+                        <div class="col-md-4">
+                            <label><b>Place</b></label>
+                            <div style="padding:4px;"></div>
+                            <span id="place-meeting"></span>
+                        </div>
+                        <div class="col-md-4">
+                            <label><b>Purpose of Meeting</b></label>
+                            <div style="padding:4px;"></div>
+                            <span id="meeting-purpose"></span>
+                        </div>
+                    </div>
+                </div>
+                <div style="padding:8px;"></div>
+                <div class="row">
+                    <center>
+                        <h1>Reschedule of Meeting</h1>
+                    </center>
+                    <div class="col-md-3">
+                        <label><b>Date of Meeting*</b></label>
+                        <div style="padding: 4px"></div>
+                        <input class="form-control" id="new-meeting-date" type="date" />
+                    </div>
+                    <div class="col-md-3">
+                        <label><b>Start Time of Meeting*</b></label>
+                        <div style="padding: 4px"></div>
+                        <input class="form-control" id="new-start-time" type="time" />
+                    </div>
+                    <div class="col-md-3">
+                        <label><b>End Time of Meeting*</b></label>
+                        <div style="padding: 4px"></div>
+                        <input class="form-control" id="new-end-time" type="time" />
+                    </div>
+                    <div class="col-md-3">
+                        <label><b>Place of Meeting*</b></label>
+                        <div style="padding: 4px"></div>
+                        <input class="form-control" id="new-place" type="text" placeholder="Enter Place" />
+                    </div>
+                    <div style="padding:8px;"></div>
+                    <div class="col-md-4" id="reschedule">
+                        <label><b>Reason For Reschedule the Meeting*</b></label>
+                        <div style="padding: 4px"></div>
+                        <textarea id="reason-meeting" style="width:75%;"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+
+                <div class="col-md-1">
+                    <button class="btn bg-success" style="color:white;" id="save-meeting">Save</button>
+                </div>
+                <div class="col-md-1">
+                    <button class="btn bg-danger" style="color:white;" id="cancel-meeting">Cancel</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<script src="~/Scripts/js/MeetingList.js"></script>
+<script src="~/Scripts/js/MeetingForm.js"></script>
+
+<script>
+
+
+    function addMeeting(el) {
+
+        $("#add").hide();
+
+        $("#ul").hide();
+        $("#uc").show();
+        $("#uu").hide();
+        $("#sv").show();
+        $("#updt").hide();
+        meetingListComponent.hide();
+        meetingFormComponent.show();
+        meetingFormComponent.populateData(null);
+
+        $(el).hide();
+
+    }
+
+    var meetingListComponent = null;
+    var meetingFormComponent = null;
+
+    $(function () {
+        meetingListComponent = new PBMeetingListComponent("meeting-list", "/ApiAdmin/GetMeetings");
+
+        meetingListComponent.deleteURL = "/ApiCustomer/DeleteCustomer";
+
+        meetingFormComponent = new PBMeetingFormComponent("meeting-form"); //, "/ApiUser/SaveUser");
+        meetingFormComponent.departmentURL = "ApiDepartment/GetDepartments";
+        meetingFormComponent.nameURL = "ApiCustomer/GetCustomers";
+        meetingFormComponent.saveURL = "ApiAdmin/SaveMeeting";
+        meetingFormComponent.updateURL = "ApiCustomer/VerifyCustomer";
+
+        meetingFormComponent.onSaveCompleted = function () {
+            meetingListComponent.getData();
+            meetingListComponent.show();
+            meetingFormComponent.hide();
+        }
+
+        meetingFormComponent.onCancelled = function () {
+            
+            $("#add").show();
+            meetingListComponent.show();
+            meetingFormComponent.hide();
+         
+            $("#ul").show();
+            $("#uc").hide();
+            $("#cl").show();
+            $("#title").html("");
+
+        }
+
+        meetingListComponent.onEditClicked = function (recToEdit) {
+            $("#cl").hide();
+            $("#add").hide();
+            meetingListComponent.hide();
+            meetingFormComponent.show();
+
+            meetingFormComponent.populateData(recToEdit);
+
+
+
+        }
+
+    })
+</script>
+

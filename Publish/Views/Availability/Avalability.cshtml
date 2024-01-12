@@ -1,0 +1,268 @@
+﻿
+@{
+    ViewBag.Title = "Availability";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var _recId = Context.Request.QueryString["_recId"] == null ? "" : Context.Request.QueryString["_recId"];
+}
+
+<style>
+    img {
+        /*background-color:red;*/
+        height: 200px;
+        background-size: cover;
+    }
+
+    .tour p {
+        display: -webkit-box;
+        max-width: 300px;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    .tour .text-lg-start {
+        text-align: right !important;
+    }
+
+    #hero {
+        /* background-image: url('../../images/8.jpg');*/
+        background-image: url('../../images/je-taime-1.png');
+    }
+
+    .btn-get-started {
+        line-height: 0;
+        padding: 15px 95px;
+        border-radius: 4px;
+        transition: 0.5s;
+        color: #fff;
+        background: green;
+        box-shadow: 0px 5px 30px rgba(65, 84, 241, 0.4);
+    }
+
+    .sec-title-style1 .title {
+        position: relative;
+        display: block;
+        color: #012970;
+        font-size: 36px;
+        line-height: 46px;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+
+    *, ::after, ::before {
+        box-sizing: border-box;
+    }
+
+    .text-center {
+        text-align: center !important;
+    }
+
+    .sec-title-style1 .text p {
+        position: relative;
+        display: inline-block;
+        padding: 0 15px;
+        color: #012970;
+        font-size: 14px;
+        line-height: 16px;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin: 0;
+    }
+
+    .sec-title-style1 .text .decor-left {
+        position: relative;
+        top: -2px;
+        display: inline-block;
+        width: 70px;
+        height: 5px;
+        background: transparent;
+    }
+
+    .sec-title-style1 .text .decor-right {
+        position: relative;
+        top: -2px;
+        display: inline-block;
+        width: 70px;
+        height: 5px;
+        background: transparent;
+    }
+
+    .sec-title-style1 .text .decor-left span {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 50px;
+        height: 1px;
+        background: #FFA500;
+        content: "";
+        margin: 2px 0;
+    }
+
+    .sec-title-style1 .text .decor-left::before {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 5px;
+        height: 5px;
+        background: #FFA500;
+        border-radius: 50%;
+        content: "";
+    }
+
+    .sec-title-style1 .text .decor-left::after {
+        position: absolute;
+        top: 0;
+        right: 10px;
+        bottom: 0;
+        width: 5px;
+        height: 5px;
+        background: #FFA500;
+        border-radius: 50%;
+        content: "";
+    }
+
+    .sec-title-style1 .text .decor-right::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 5px;
+        height: 5px;
+        background: #FFA500;
+        border-radius: 50%;
+        content: "";
+    }
+
+    .sec-title-style1 .text .decor-right::after {
+        position: absolute;
+        top: 0;
+        left: 10px;
+        bottom: 0;
+        width: 5px;
+        height: 5px;
+        background: #FFA500;
+        border-radius: 50%;
+        content: "";
+    }
+
+    .sec-title-style1 .text .decor-right span {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 50px;
+        height: 1px;
+        background: #FFA500;
+        content: "";
+        margin: 2px 0;
+    }
+</style>
+<section id="hero" class="hero d-flex align-items-center">
+
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-6 hero-img" data-aos="zoom-out" data-aos-delay="200">
+
+                @*<img src="~/images/Pondicherrycollege.png" />*@
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<div id="main">
+
+    <section id="values" class="values">
+        <!--<script type="text/template" id="list-item-template">
+
+            <div class="col-md-12">
+                <div--> @*class="sv shadow-1"*@<!-->
+
+                    <table width="100%">
+                        <tr>
+                            <td valign="top">
+
+                                <div class="box">
+
+                                    <img src='{{image}}' style="border-radius: 50%;" width="150px" height="150px" />
+                                    <h3> {{place}}</h3>
+                                    <div>
+                                        <p>{{description}}</p>
+                                    </div>
+
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+        </script>-->
+
+
+        <div class="container">
+
+            @*<div id="list-template-container" class="row">
+
+            </div>*@
+
+            <br />
+
+
+        </div>
+        <div>
+            <p>
+                RULES AND REGULATIONS
+
+
+                1.       A 50% DOWN PAYMENT UPON RESERVATION OR BLOCKING OF DATE IS REQUIRED WHILE THE BALANCE MUST BE SETTLED AT LEAST A WEEK BEFORE THE SCHEDULED EVENT.
+
+                2.       THE DOWN PAYMENT IS NON-REFUNDABLE, NON-TRANSFERABLE AND NON-CONVERTIBLE TO CASH UPON CONFIRMATION OR BLOCKING OF DATE.
+
+                3.       THE DOWN PAYMENT WILL BE FORFEITED IF CANCELLED A WEEK BEFORE THE SCHEDULED EVENT.
+
+                4.       RE-SCHEDULING MAY ONLY BE ALLOWED A WEEK BEFORE THE EVENT IF THERE IS A SUDDEN WEATHER DISTURBANCE AND MAY ONLY BE RE-SCHEDULED TO AN AVAILABLE DATE.
+
+                5.       A P 2,000 CASH BOND IS REQUIRED UPON RESERVATION OF THE EVENTS PLACE AND IS REFUNDABLE AT THE END OF THE EVENT.
+
+                6.       THE VENUE MAY BE USED UP TO 5 HOURS PER EVENT.
+
+                7.       AN ADDITIONAL P 1,000 FOR EVERY HOUR EXTENSION DURING DAY TIME AND P 1,500 FOR EVERY HOUR EXTENSION DURING NIGHT TIME WILL BE CHARGED.
+
+                8.       AN ADDITIONAL PAYMENT WILL BE CHARGED FOR EVERY USE OF ELECTRICITY WHICH IS NOT INCLUDED IN THE PACKAGE OR CONTRACT. THE CHARGE WILL START FROM P 500 AND UP DEPENDING ON THE EQUIPMENT TO BE USED.
+
+                9.       IN RENTING AND AVAILING OF OTHER ITEMS OR SERVICES, A 50% DOWN PAYMENT IS ALSO REQUIRED UPON ORDERING OR BOOKING WHILE THE BALANCE MUST BE GIVEN AT LEAST A WEEK BEFORE THE SCHEDULED EVENT.
+
+                10.   FOR NIGHT EVENT RENTERS: THE SOUND/MUSIC MUST BE TURNED OFF ON OR BEFORE 11 O’CLOCK IN THE EVENING EVEN IF THE EVENT ENDS AT 12 O’CLOCK MIDNIGHT.
+
+                11.   THE MANAGEMENT OF WHITE GARDEN THE EVENTS PLACE SHALL NOT BE HELD LIABLE FOR ANY LOSS OR DAMAGE TO VALUABLES, PERSONAL PROPERTY OF ANY KIND, VEHICLES, INJURY OR EVEN DEATH OF THE GUESTS AND OF THE CLIENTS.
+
+            </p>
+        </div>
+        <div data-aos="fade-up" data-aos-delay="200" style="text-align:center;">
+            <div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-2">
+                    <label style="vertical-align:middle;">Check Date Availability</label>
+                </div>
+                <div class="col-md-2">
+                    <input class="form-control" type="date" />
+                </div>
+                <div class="col-md-4">
+                    <a href="/Customer/Index" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
+                        <span>Book Event</span>&nbsp;
+                        <i class="bi bi-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+
+    </section>
+    <input type="hidden" id="rec-id" value='@_recId'>
+    </div>
+    <script src="~/Scripts/js/BookEvent.js"></script>
+

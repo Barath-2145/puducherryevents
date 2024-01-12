@@ -1,0 +1,60 @@
+﻿
+@{
+    ViewBag.Title = "Event4";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+    .event img {
+        height: 600px;
+        width: 1343px;
+    }
+
+    p {
+        padding-left: 20px;
+        /*text-align:center;*/
+    }
+    .btn-get-started {
+        line-height: 0;
+        padding: 15px 95px;
+        border-radius: 4px;
+        transition: 0.5s;
+        color: #fff;
+        background: green;
+        box-shadow: 0px 5px 30px rgba(65, 84, 241, 0.4);
+    }
+</style>
+<div class="event" data-aos="fade-up" data-aos-delay="200">   
+    <img src="~/images/7.jpg" />
+</div>
+<div @*data-aos="fade-up" data-aos-delay="200"*@>
+    <br />
+    <p data-aos="fade-up" data-aos-delay="200">
+        <i class="fa fa-check" aria-hidden="true"></i> &nbsp;Paradise Beach or Plage Paradiso as it is known, is a popular tourist destination of Chunnambar.
+    </p>
+    <p data-aos="fade-up" data-aos-delay="200"><i class="fa fa-check" aria-hidden="true"></i> &nbsp; This Pondicherry beach got its name because of the peaceful experience it offers to its visitors. To access this beach, you need to take a boat ride from the town of Pondicherry.  </p>
+    <p data-aos="fade-up" data-aos-delay="200"><i class="fa fa-check" aria-hidden="true"></i> &nbsp; This is also one of the reasons why the beach got its current identity. This isolated beach of Pondicherry is a great weekend respite to enjoy with your family, friends, and relatives. </p>
+</div>
+<div data-aos="fade-up" data-aos-delay="200" style="text-align:center;">
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-2">
+            <label style="vertical-align:middle;">Check Date Availability</label>
+        </div>
+        <div class="col-md-2">
+            <input class="form-control" type="date" />
+        </div>
+        <div class="col-md-4">
+            <a href="/Customer/Index" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
+                <span>Book Event</span>&nbsp;
+                <i class="bi bi-arrow-right"></i>
+            </a>
+        </div>
+    </div>
+</div>
+<br />
+
+
+
+

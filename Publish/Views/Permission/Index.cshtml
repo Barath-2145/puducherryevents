@@ -1,0 +1,447 @@
+﻿
+@{
+    //ViewBag.Title = "Verify";
+    //Layout = "~/Views/Shared/_AdminLayout.cshtml";
+
+    var userName = Context.Request.Form["username"];
+
+    var role = Context.Request.Form["role"];
+
+
+    if (role == "ADMIN")
+    {
+        Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    }
+    else if (role == "USER")
+    {
+        Layout = "~/Views/Shared/_UserLayout.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_SuperAdminLayout.cshtml";
+    }
+}
+
+<style>
+
+    .table.dataTable th {
+        text-align: center;
+    }
+
+    table.dataTable thead tr {
+        background-color: gray;
+        color: white;
+    }
+
+    .action-buttons {
+        min-width: 100px !important;
+    }
+
+
+
+    .save .btn-get-started {
+        margin-top: 30px;
+        line-height: 0;
+        padding: 15px 65px;
+        border-radius: 4px;
+        transition: 0.5s;
+        color: #fff;
+        background: green;
+        box-shadow: 0px 5px 30px rgba(65, 84, 241, 0.4);
+    }
+
+    .cancel .btn-get-started {
+        margin-top: 30px;
+        line-height: 0;
+        padding: 15px 65px;
+        border-radius: 4px;
+        transition: 0.5s;
+        color: #fff;
+        background: red;
+        box-shadow: 0px 5px 30px rgba(65, 84, 241, 0.4);
+    }
+
+    .back .btn-get-started {
+        margin-top: 30px;
+        line-height: 0;
+        padding: 15px 65px;
+        border-radius: 4px;
+        transition: 0.5s;
+        color: #fff;
+        background: blue;
+        box-shadow: 0px 5px 30px rgba(65, 84, 241, 0.4);
+    }
+
+    .dataTables_scrollHead {
+        width: 100% !important;
+    }
+
+    #cancel-customer-button,
+    #save-customer-button,
+    #update-customer-button {
+        color: white;
+        border-radius: 8px;
+        padding: 8px;
+    }
+
+    .select2-container .select2-selection--single {
+        height: 33px;
+        box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    }
+
+    select2-container--default .select2-selection--single {
+        background-color: black;
+    }
+
+    .sec-title-style1 .title {
+        position: relative;
+        display: block;
+        color: #012970;
+        font-size: 36px;
+        line-height: 46px;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+
+    *, ::after, ::before {
+        box-sizing: border-box;
+    }
+
+    .text-center {
+        text-align: center !important;
+    }
+
+    .sec-title-style1 .text p {
+        position: relative;
+        display: inline-block;
+        padding: 0 15px;
+        color: #012970;
+        font-size: 14px;
+        line-height: 16px;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin: 0;
+    }
+
+    .sec-title-style1 .text .decor-left {
+        position: relative;
+        top: -2px;
+        display: inline-block;
+        width: 70px;
+        height: 5px;
+        background: transparent;
+    }
+
+    .sec-title-style1 .text .decor-right {
+        position: relative;
+        top: -2px;
+        display: inline-block;
+        width: 70px;
+        height: 5px;
+        background: transparent;
+    }
+
+    .sec-title-style1 .text .decor-left span {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 50px;
+        height: 1px;
+        background: #FFA500;
+        content: "";
+        margin: 2px 0;
+    }
+
+    .sec-title-style1 .text .decor-left::before {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 5px;
+        height: 5px;
+        background: #FFA500;
+        border-radius: 50%;
+        content: "";
+    }
+
+    .sec-title-style1 .text .decor-left::after {
+        position: absolute;
+        top: 0;
+        right: 10px;
+        bottom: 0;
+        width: 5px;
+        height: 5px;
+        background: #FFA500;
+        border-radius: 50%;
+        content: "";
+    }
+
+    .sec-title-style1 .text .decor-right::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 5px;
+        height: 5px;
+        background: #FFA500;
+        border-radius: 50%;
+        content: "";
+    }
+
+    .sec-title-style1 .text .decor-right::after {
+        position: absolute;
+        top: 0;
+        left: 10px;
+        bottom: 0;
+        width: 5px;
+        height: 5px;
+        background: #FFA500;
+        border-radius: 50%;
+        content: "";
+    }
+
+    .sec-title-style1 .text .decor-right span {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 50px;
+        height: 1px;
+        background: #FFA500;
+        content: "";
+        margin: 2px 0;
+    }
+
+    .container {
+        max-width: 1274px;
+    }
+
+    .application {
+        border: 2px solid #012970;
+        padding: 30px;
+        margin: 8px;
+    }
+</style>
+<div style="padding:60px;"></div>
+<div class="col-md-12" style="margin: 0; padding: 0;">
+    <div class="container" @*class="panel panel-default shadow"*@>
+        <div @*class="panel-heading"*@>
+            <!--<div class="row" style="text-align: center;">-->
+            @*<div class="col-md-10">
+                    <b  style="font-size:24px; color:#012970;">
+                        Customer Verification
+                        <span id="title"></span>
+                    </b>
+                </div>*@
+
+
+            <!--</div>-->
+            <div id="cv" class="sec-title-style1 text-center max-width">
+                <div class="title">Customer Application</div>
+                <div id="cl" class="text"><div class="decor-left"><span></span></div><p>Application Status</p><div class="decor-right"><span></span></div></div>
+
+            </div>
+        </div>
+        <br />
+
+        <div @*class="panel-body" style="padding:8px; margin:0;"*@>
+            <div id="permission-customer-list">
+                @*<table id="customer-grid" class="table table-striped table-bordered" style="width:100%">*@
+                <table id="permission-customer-grid" class="table table-striped table-bordered" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>Customer Name</th>
+                            <th>Event Category</th>
+                            <th>Start Date</th>
+                            <th>End Date</th>
+                            <th>Place</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+
+                </table>
+            </div>
+
+        </div>
+        <div id="permission-customer-form" data-aos="fade-up" data-aos-delay="200" style="display: none;">
+
+            <div class="sec-title-style1 text-center max-width">
+
+                <div class="text"><div class="decor-left"><span></span></div><p>Application Status</p><div class="decor-right"><span></span></div></div>
+
+            </div>
+            <br />
+            <div class="row application">
+                <div class="col-md-3">
+                    <label><b>Name</b></label><br />
+                    <Span id="customer-name"></Span>
+                </div>
+                <div class="col-md-3">
+                    <label><b>Event Name</b></label><br />
+                    <Span id="event-name"></Span>
+                </div>
+                <div class="col-md-3">
+                    <label><b>Event Description</b></label><br />
+                    <Span id="event-desc"></Span>
+                </div>
+                <div class="col-md-3">
+                    <button id="check-status" class="btn bg-success" style="color:white;">Check Status</button>
+                </div>
+            </div>
+            <br />
+            <br />
+            <div class="row application" id="app" style="display:none;">
+                <div id="res" class="sec-title-style1 text-center max-width" style="display:none;">
+                    <div class="text"><div class="decor-left"><span></span></div><p>Current Status</p><div class="decor-right"><span></span></div></div>
+                </div>
+                <div style="padding:8px;"></div>
+                <div class="col-md-4" id="evd" style="display:none;">
+                    <label><b>Department Name</b></label>
+                    <div style="padding:8px;"></div>
+                    <div id="event-dept"></div>
+                </div>
+                <div class="col-md-4" id="evd-approved" style="display:none;">
+                    <center>
+                        <label><b>Response Received</b></label>
+                        <div style="padding:8px;"></div>
+                        <div id="event-appr"></div>
+                    </center>
+                </div>
+                <div class="col-md-4" id="evd-pre" style="display:none;">
+                    <center>
+                        <label><b>Preview Copy</b></label>
+                        <div style="padding:8px;"></div>
+                        <div id="event-pre"></div>
+                    </center>
+                </div>
+            </div>
+            <br />
+            @*<div class="col-md-3">
+                    <button id="preview-noc" class="btn bg-success" style="color:white;">Preview Noc Copy</button>
+                </div>*@
+            <div class="row" id="noc" style="display:none;">
+                <div class="row">
+                    <div class="col-md-4">
+                        <button class="btn btn-primary" onclick="onExportClick();" id="exportpdf">Download Noc Copy</button>
+                    </div>
+                </div>
+                <br />
+                <div id="divToExport">
+                   
+                    <div class="application">
+                        <div class="row">
+                            <div class="col-md-2">
+                                Noc Copy:
+                            </div>
+                            <div class="col-md-10">
+                                <div class="preview">
+                                    <img src="" id="noc-img" width="100%" height="890px" />
+                                </div>
+                            </div>
+                        </div>
+                        <br />
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="row" style="display:none;">
+                <div id="evd-rejected" style="display:none;">
+                    <label><b>Application Rejected Departments</b></label>
+                    <div style="padding:4px;"></div>
+                    <div id="event-reje"></div>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="row col-md-10">
+                    <div class="col-md-3"></div>
+                    <div class="save col-md-3" id="verify-application" style="display:none;">
+                        <a href="#" id="verify-customer" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
+                            <span>Approved</span>&nbsp;
+                            <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                    <div class="cancel col-md-3" id="reject-application" style="display:none;">
+                        <a href="#" id="reject-customer" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
+                            <span>Rejected</span>&nbsp;
+                            <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                    <div class="back col-md-3">
+                        <a href="#" id="cancel-customer" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
+                            <span>Go Back</span>&nbsp;
+                            <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+            <br />
+        </div>
+    </div>
+</div>
+
+
+<script src="~/Scripts/js/PermissionCustomerList.js"></script>
+<script src="~/Scripts/js/PermissionCustomerForm.js"></script>
+<script src="~/Scripts/html2pdf.js"></script>
+<script>
+
+    function showPreview(event) {
+        if (event.target.files.length > 0) {
+            var src = URL.createObjectURL(event.target.files[0]);
+            var preview = document.getElementById("company-logo-preview");
+            preview.src = src;
+            preview.style.display = "block";
+        }
+    }
+
+
+    var permissionCustomerListComponent = null;
+    var permissionCustomerFormComponent = null;
+
+    $(function () {
+        permissionCustomerListComponent = new PBPermissionCustomerListComponent("permission-customer-list", "/ApiCustomer/GetCustomers2");
+
+
+        permissionCustomerFormComponent = new PBPermissionCustomerFormComponent("permission-customer-form"); //, "/ApiUser/SaveUser");
+
+        permissionCustomerFormComponent.updateURL = "ApiCustomer/ApproveCustomerApplication";
+        permissionCustomerFormComponent.rejectURL = "ApiCustomer/RejectCustomerApplication";
+        permissionCustomerFormComponent.checkStatusURL = "ApiCustomer/CheckCustomerStatus";
+
+        permissionCustomerFormComponent.onVerifyCompleted = function () {
+            permissionCustomerListComponent.getData();
+            permissionCustomerListComponent.show();
+            permissionCustomerFormComponent.hide();
+        }
+
+        permissionCustomerFormComponent.onCancelled = function () {
+
+            permissionCustomerListComponent.show();
+            permissionCustomerFormComponent.hide();
+            $("#add-customer").show();
+            $("#ul").show();
+            $("#cl").show();
+            $("#title").html("");
+
+        }
+
+        permissionCustomerListComponent.onEditClicked = function (recToEdit) {
+            $("#cl").hide();
+            permissionCustomerListComponent.hide();
+            permissionCustomerFormComponent.show();
+            permissionCustomerFormComponent.populateData(recToEdit);
+
+
+
+        }
+
+    })
+
+</script>

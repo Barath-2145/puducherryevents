@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewBag.Title = "UpcomingEvents";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Content/css/theme1.css" rel="stylesheet" />
+<link href="~/Content/css/theme2.css" rel="stylesheet" />
+<link href="~/Content/css/theme3.css" rel="stylesheet" />
+<script src="~/Scripts/caleandar.js"></script>
+
+<div style="padding:220px;">
+
+    <div id="caleandar">
+    </div>
+</div>
+
+<script>
+    var events = [
+        { 'Date': new Date(2016, 6, 7), 'Title': 'Doctor appointment at 3:25pm.' },
+        { 'Date': new Date(2016, 6, 18), 'Title': 'New Garfield movie comes out!', 'Link': 'https://garfield.com' },
+        { 'Date': new Date(2016, 6, 27), 'Title': '25 year anniversary', 'Link': 'https://www.google.com.au/#q=anniversary+gifts' },
+    ];
+
+    var settings = {
+        Color: '',
+        LinkColor: '',
+        NavShow: true,
+        NavVertical: false,
+        NavLocation: '',
+        DateTimeShow: true,
+        DateTimeFormat: 'mmm, yyyy',
+        DatetimeLocation: '',
+        EventClick: '',
+        EventTargetWholeDay: false,
+        DisabledDays: [],
+        //ModelChange: model
+    };
+
+    var element = document.getElementById('caleandar');
+    caleandar(element, events, settings);
+</script>

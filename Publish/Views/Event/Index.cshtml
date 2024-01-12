@@ -1,0 +1,726 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+<style>
+    .save .btn-get-started {
+        margin-top: 30px;
+        line-height: 0;
+        padding: 15px 95px;
+        border-radius: 4px;
+        transition: 0.5s;
+        color: #fff;
+        background: green;
+        box-shadow: 0px 5px 30px rgba(65, 84, 241, 0.4);
+    }
+
+    .cancel .btn-get-started {
+        margin-top: 30px;
+        line-height: 0;
+        padding: 15px 95px;
+        border-radius: 4px;
+        transition: 0.5s;
+        color: #fff;
+        background: red;
+        box-shadow: 0px 5px 30px rgba(65, 84, 241, 0.4);
+    }
+
+    /* #head {
+        background-image: url('../../images/registration.jpg');
+        background-size:cover;
+    }*/
+    .sec-title-style1 .title {
+        position: relative;
+        display: block;
+        color: #012970;
+        font-size: 36px;
+        line-height: 46px;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+
+    *,
+    ::after,
+    ::before {
+        box-sizing: border-box;
+    }
+
+    .text-center {
+        text-align: center !important;
+    }
+
+    .sec-title-style1 .text p {
+        position: relative;
+        display: inline-block;
+        padding: 0 15px;
+        color: #012970;
+        font-size: 14px;
+        line-height: 16px;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin: 0;
+    }
+
+    .sec-title-style1 .text .decor-left {
+        position: relative;
+        top: -2px;
+        display: inline-block;
+        width: 70px;
+        height: 5px;
+        background: transparent;
+    }
+
+    .sec-title-style1 .text .decor-right {
+        position: relative;
+        top: -2px;
+        display: inline-block;
+        width: 70px;
+        height: 5px;
+        background: transparent;
+    }
+
+    .sec-title-style1 .text .decor-left span {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 50px;
+        height: 1px;
+        background: #FFA500;
+        content: "";
+        margin: 2px 0;
+    }
+
+    .sec-title-style1 .text .decor-left::before {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 5px;
+        height: 5px;
+        background: #FFA500;
+        border-radius: 50%;
+        content: "";
+    }
+
+    .sec-title-style1 .text .decor-left::after {
+        position: absolute;
+        top: 0;
+        right: 10px;
+        bottom: 0;
+        width: 5px;
+        height: 5px;
+        background: #FFA500;
+        border-radius: 50%;
+        content: "";
+    }
+
+    .sec-title-style1 .text .decor-right::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 5px;
+        height: 5px;
+        background: #FFA500;
+        border-radius: 50%;
+        content: "";
+    }
+
+    .sec-title-style1 .text .decor-right::after {
+        position: absolute;
+        top: 0;
+        left: 10px;
+        bottom: 0;
+        width: 5px;
+        height: 5px;
+        background: #FFA500;
+        border-radius: 50%;
+        content: "";
+    }
+
+    .sec-title-style1 .text .decor-right span {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 50px;
+        height: 1px;
+        background: #FFA500;
+        content: "";
+        margin: 2px 0;
+    }
+
+    .head {
+        padding: 60px;
+        text-align: center;
+        background: #1abc9c;
+        color: white;
+        font-size: 30px;
+    }
+</style>
+<div id="head">
+    <div style="padding:80px;"></div>
+    <div class="sec-title-style1 text-center max-width">
+        <div class="title">Event Booking</div>
+        <div class="text">
+            <div class="decor-left"><span></span></div>
+            <p>Let's Organize The Event</p>
+            <div class="decor-right"><span></span></div>
+        </div>
+
+    </div>
+
+    <br />
+
+    <br />
+    <div id="customer-form" class="container">
+
+        <div class="" id="ref-form" style="display:none;">
+            <div class="row">
+                <h4>Your Reference Id is: <span id="ref-id"></span></h4>
+                <div class="col-md-4">
+                    <label><b>Reference Id</b></label>
+                    <div style="padding:4px;"></div>
+                    <input class="form-control" id="reference-id" type="text" placeholder="Enter Your Reference Id" />
+                </div>
+                <div class="col-md-2" style="padding-top:32px;">
+                    <button class="btn bg-success" style="color:white;" id="verify-refer">
+                        Send
+                    </button>
+                </div>
+                @*<div class="save col-md-3">
+                    <a href="#" id="verify-refer" class="btn-get-started scrollto d-inline-flex align-items-center
+                    justify-content-center align-self-center">
+                    <span>Submit</span>&nbsp;
+                    <i class="bi bi-arrow-right"></i>
+                    </a>
+                    </div>*@
+            </div>
+        </div>
+        <div id="detail-form">
+
+            <div class="row col-md-12">
+                <div class="row col-md-12" id="prv-form">
+                    <div class="row">
+                        <div class="col-md-2" style="background-color:tan; border-radius:12px; height:50px;">
+
+                            <h4 style="color:brown;padding-top:10px;"><b>Basic Details</b></h4>
+                        </div>
+                        <div class="col-md-10">
+                            <hr />
+                        </div>
+                    </div>
+                    <div style="padding:8px;"></div>
+                    <div class="col-md-3">
+                        <label><b>Name*</b></label>
+                        <div style="padding:4px;"></div>
+                        <input class="form-control" id="name" type="text" placeholder="Enter Name" />
+                    </div>
+                    <div class="col-md-3">
+                        <label><b>Address</b></label>
+                        <div style="padding:4px;"></div>
+                        <input class="form-control" id="address" type="text" placeholder="Enter Address" />
+                    </div>
+
+
+                    <div class="col-md-3">
+                        <label><b>Mobile Number*</b></label>
+                        <div style="padding:4px;"></div>
+                        <input class="form-control" id="mobile-no" type="text" placeholder="Enter Mobile Number"
+                            maxlength="10" />
+                    </div>
+                    <div class="col-md-3">
+                        <label><b>Email Id*</b></label>
+                        <div style="padding:4px;"></div>
+                        <input class="form-control" id="email-id" type="text" placeholder="Enter EmailId" />
+                    </div>
+                    <div style="padding:8px;"></div>
+                    <div class="col-md-3">
+                        <label><b>Organization*</b></label>
+                        <div style="padding:4px;"></div>
+                        <input class="form-control" id="organization" type="text" placeholder="Enter Name" />
+                    </div>
+                    <div class="col-md-3">
+                        <label><b>Organization url</b></label>
+                        <div style="padding:4px;"></div>
+                        <input class="form-control" id="organization-url" type="url" placeholder="www.example.com" />
+                    </div>
+                    <div class="col-md-3">
+                        <label><b>Organization Mobile Number</b></label>
+                        <div style="padding:4px;"></div>
+                        <input class="form-control" id="organization-mobile-no" type="text"
+                            placeholder="Enter Mobile Number" maxlength="10" />
+                    </div>
+                    <div class="col-md-3">
+                        <label><b>Position in Organisation*</b></label>
+                        <div style="padding:4px;"></div>
+                        <input class="form-control" id="position-organization" type="text"
+                            placeholder="Enter Position" />
+                    </div>
+                    <div style="padding:8px;"></div>
+                    <div class="col-md-3">
+                        <label><b>Id Proof Type*</b></label>
+                        <div style="padding:4px;"></div>
+                        <select id="government-id" class="form-control">
+                            <option value="" disabled selected>Select your option</option>
+                            <option>Aadhar Card</option>
+                            <option>Pan Card</option>
+                            <option>Voter Card</option>
+                            <option>Liscence Card</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <label><b>GST Number</b></label>
+                        <div style="padding:4px;"></div>
+                        <input class="form-control" id="gst-no" type="text" placeholder="Enter GST Number"
+                            maxlength="15" />
+                    </div>
+                    <br />
+                    <div style="padding:8px;"></div>
+                    <div style="padding:8px;"></div>
+                    <div style="padding:8px;"></div>
+                    <div class="row">
+                        <div class="col-md-2" style="background-color:tan; border-radius:12px; height:50px;">
+
+                            <h4 style="color:brown;padding-top:10px;"><b>Event Details</b></h4>
+                        </div>
+                        <div class="col-md-10">
+                            <hr />
+                        </div>
+                    </div>
+                    <div style="padding:8px;"></div>
+                    <div style="padding:8px;"></div>
+                    <div class="col-md-3">
+                        <label><b>Your Event Name*</b></label>
+                        <div style="padding:4px;"></div>
+                        <input class="form-control" type="text" id="event-details" placeholder="Enter Event Name" />
+                    </div>
+                    <div class="col-md-3">
+                        <label><b>No.of People expected*</b></label>
+                        <div style="padding:4px;"></div>
+                        <input class="form-control" id="no-people" type="text" placeholder="Enter No of People" />
+                    </div>
+
+
+                    <div class="col-md-3">
+                        <label><b>Is the Event Ticketed?*</b></label>
+                        <div style="padding:4px;"></div>
+                        <select id="event-ticket" class="form-control">
+                            <option value="" disabled selected>Select your option</option>
+                            <option>Yes</option>
+                            <option>No</option>
+                            <option>N/A</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <label><b>Entrance Fee*</b></label>
+                        <div style="padding:4px;"></div>
+                        <select id="enterance-fee" class="form-control">
+                            <option value="" disabled selected>Select your option</option>
+                            <option>Yes</option>
+                            <option>No</option>
+                            <option>N/A</option>
+                        </select>
+                    </div>
+                    <div style="padding:8px;"></div>
+                    <div class="col-md-3">
+                        <label><b>Entertainment*</b></label>
+                        <div style="padding:4px;"></div>
+                        <select id="entertainment" class="form-control">
+                            <option value="" disabled selected>Select your option</option>
+                            <option>Yes</option>
+                            <option>No</option>
+                            <option>N/A</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-3">
+                        <label><b>Live Bands*</b></label>
+                        <div style="padding:4px;"></div>
+                        <select id="live-bands" class="form-control">
+                            <option value="" disabled selected>Select your option</option>
+                            <option>Yes</option>
+                            <option>No</option>
+                            <option>N/A</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-3">
+                        <label><b>Rides*</b></label>
+                        <div style="padding:4px;"></div>
+                        <select id="rides" class="form-control">
+                            <option value="" disabled selected>Select your option</option>
+                            <option>Yes</option>
+                            <option>No</option>
+                            <option>N/A</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <label><b>Stalls*</b></label>
+                        <div style="padding:4px;"></div>
+                        <select id="stalls" class="form-control">
+                            <option value="" disabled selected>Select your option</option>
+                            <option>Yes</option>
+                            <option>No</option>
+                            <option>N/A</option>
+                        </select>
+                    </div>
+                    <div style="padding:8px;"></div>
+                    <div class="col-md-3">
+                        <label><b>Staging*</b></label>
+                        <div style="padding:4px;"></div>
+                        <select id="staging" class="form-control">
+                            <option value="" disabled selected>Select your option</option>
+                            <option>Yes</option>
+                            <option>No</option>
+                            <option>N/A</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-3">
+                        <label><b>Bins*</b></label>
+                        <div style="padding:4px;"></div>
+                        <select id="bins" class="form-control">
+                            <option value="" disabled selected>Select your option</option>
+                            <option>Yes</option>
+                            <option>No</option>
+                            <option>N/A</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-3">
+                        <label><b>Risk assessment attached?*</b></label>
+                        <div style="padding:4px;"></div>
+                        <select id="risk" class="form-control">
+                            <option value="" disabled selected>Select your option</option>
+                            <option>Yes</option>
+                            <option>No</option>
+                            <option>N/A</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-3">
+                        <label><b>Parking Area*</b></label>
+                        <div style="padding:4px;"></div>
+                        <select id="parking" class="form-control">
+                            <option value="" disabled selected>Select your option</option>
+                            <option>Yes</option>
+                            <option>No</option>
+                            <option>N/A</option>
+                        </select>
+                    </div>
+                    <div style="padding:8px;"></div>
+                    <div class="col-md-4">
+                        <label><b>Is this Event Solely for Charity?*</b></label>
+                        <div style="padding:4px;"></div>
+                        <select id="event-charity" class="form-control">
+                            <option value="" disabled selected>Select your option</option>
+                            <option>Yes</option>
+                            <option>No</option>
+                            <option>N/A</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-8">
+                        <label><b>If not please provide further details*</b></label>
+                        <div style="padding:4px;"></div>
+                        <input class="form-control" type="text" placeholder="Enter Further Details"
+                            id="further-details" />
+                    </div>
+                    <div style="padding:8px;"></div>
+                    <div class="col-md-4">
+                        <label><b>Liquor licence*</b></label>
+                        <div style="padding:4px;"></div>
+                        <select id="liquor-licence" class="form-control">
+                            <option value="" disabled selected>Select your option</option>
+                            <option>Yes</option>
+                            <option>No</option>
+                            <option>N/A</option>
+                        </select>
+                    </div>
+                    <div class="col-md-8">
+                        <label><b>If yes, from whom?*</b></label>
+                        <div style="padding:4px;"></div>
+                        <input class="form-control" type="text" placeholder="Enter Liquor Details"
+                            id="liquor-details" />
+                    </div>
+                    <div style="padding:8px;"></div>
+                    <div class="col-md-4">
+                        <label><b>Food*</b></label>
+                        <div style="padding:4px;"></div>
+                        <select id="food" class="form-control">
+                            <option value="" disabled selected>Select your option</option>
+                            <option>Yes</option>
+                            <option>No</option>
+                            <option>N/A</option>
+                        </select>
+                    </div>
+                    <div class="col-md-8">
+                        <label><b>If yes, from whom?*</b></label>
+                        <div style="padding:4px;"></div>
+                        <input class="form-control" type="text" placeholder="Enter Food Details" id="food-details" />
+                    </div>
+                    <div style="padding:8px;"></div>
+                    <div class="col-md-4">
+                        <label><b>Barriers*</b></label>
+                        <div style="padding:4px;"></div>
+                        <select id="barriers" class="form-control">
+                            <option value="" disabled selected>Select your option</option>
+                            <option>Yes</option>
+                            <option>No</option>
+                            <option>N/A</option>
+                        </select>
+                    </div>
+                    <div class="col-md-8">
+                        <label><b>If yes, from whom?*</b></label>
+                        <div style="padding:4px;"></div>
+                        <input class="form-control" type="text" placeholder="Enter Barrier Details"
+                            id="barrier-details" />
+                    </div>
+                    <div style="padding:8px;"></div>
+                    <div class="col-md-4">
+                        <label><b>Toilets*</b></label>
+                        <div style="padding:4px;"></div>
+                        <select id="toilets" class="form-control">
+                            <option value="" disabled selected>Select your option</option>
+                            <option>Yes</option>
+                            <option>No</option>
+                            <option>N/A</option>
+                        </select>
+                    </div>
+                    <div class="col-md-8">
+                        <label><b>If yes, from whom?*</b></label>
+                        <div style="padding:4px;"></div>
+                        <input class="form-control" type="text" placeholder="Enter Toilet Details"
+                            id="toilet-details" />
+                    </div>
+                    <div style="padding:8px;"></div>
+
+                    <div class="col-md-4">
+                        <label><b>Have you provided a Route If necessary?*</b></label>
+                        <div style="padding:4px;"></div>
+                        <select id="route" class="form-control">
+                            <option value="" disabled selected>Select your option</option>
+                            <option>Yes</option>
+                            <option>No</option>
+                            <option>N/A</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-8">
+                        <label><b>Please confirm you have read and understood the guidelines.*</b></label>
+                        <div style="padding:4px;"></div>
+                        <select id="guidelines" class="form-control">
+                            <option value="" disabled selected>Select your option</option>
+                            <option>Yes</option>
+                            <option>No</option>
+                            <option>N/A</option>
+                        </select>
+                    </div>
+                    <div style="padding:8px;"></div>
+                    <div class="col-md-4">
+                        <label><b>Have you complied with Health & Safety Statutory requirements?*</b></label>
+                        <div style="padding:4px;"></div>
+                        <select id="health-safety" class="form-control">
+                            <option value="" disabled selected>Select your option</option>
+                            <option>Yes</option>
+                            <option>No</option>
+                            <option>N/A</option>
+                        </select>
+                    </div>
+                    <div style="padding:8px;"></div>
+                    <div style="padding:8px;"></div>
+                    <div style="padding:8px;"></div>
+                    <div class="row">
+                        <div class="col-md-4" style="background-color:tan; border-radius:12px; height:50px;">
+
+                            <h4 style="color:brown;padding-top:10px;"><b>Upload Images / Id Proofs</b></h4>
+                        </div>
+                        <div class="col-md-8">
+                            <hr />
+                        </div>
+                    </div>
+                    <div style="padding:8px;"></div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <label><b>Id Proof*</b></label>
+                            <div style="padding:5px;"></div>
+                            <input class="form-control" type="file" id="profile_photo" @*style="display: none"*@
+                                onchange=" customerFormComponent.fileSelectionChanged();"
+                                accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*" />
+                            @*<button class="btn btn-info btn-block"
+                                onclick="customerFormComponent.selectProfilePhoto();">Select photo ...</button>*@
+                        </div>
+                    </div>
+                    <br />
+                    <div style="padding:8px;"></div>
+
+                    <div class="row">
+                        <div class="col-md-3">
+                            <label><b>Event Plan*</b></label>
+                            <div style="padding:5px;"></div>
+                            <input class="form-control" type="file" id="plan_photo" @*style="display: none"*@
+                                onchange=" customerFormComponent.fileSelectionChanged3();"
+                                accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*" />
+                            @*<button class="btn btn-info btn-block"
+                                onclick="customerFormComponent.selectProfilePhoto();">Select photo ...</button>*@
+                        </div>
+                    </div>
+                    <br />
+                    <div style="padding:8px;"></div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <label><b>Authorised Signature*</b></label>
+                            <div style="padding:5px;"></div>
+                            <input class="form-control" type="file" id="signature_photo" @*style="display: none"*@
+                                onchange=" customerFormComponent.fileSelectionChanged2();"
+                                accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*" />
+                            @*<button class="btn btn-info btn-block"
+                                onclick="customerFormComponent.selectProfilePhoto();">Select photo ...</button>*@
+                        </div>
+                    </div>
+                    <br />
+                    <div style="padding:8px;"></div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <label><b>Cover Letter*</b></label>
+                            <div style="padding:5px;"></div>
+                            <input class="form-control" type="file" id="cover_letter" @*style="display: none"*@
+                                onchange=" customerFormComponent.fileSelectionChanged4();"
+                                accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*" />
+                            @*<button class="btn btn-info btn-block"
+                                onclick="customerFormComponent.selectProfilePhoto();">Select photo ...</button>*@
+                        </div>
+                    </div>
+                </div>
+                <div id="nxt-form" style="display:none;">
+                    <div class="row col-md-12">
+                        <div class="col-md-9">
+                            <img src="~/images/ptdc qr.jpeg" style="height:600px; width:450px;" />
+                        </div>
+
+                        <div class="col-md-3">
+                            <label><b>Transaction No*</b></label>
+                            <div style="padding:5px;"></div>
+                            <input id="transaction-no" class="form-control" type="text"
+                                placeholder="Enter Transaction No" maxlength="16" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-9"></div>
+                <div class="col-md-12"></div>
+
+                @*<div class="save col-md-3" id="nxt-btn">
+                    <a href="#" onclick="next();" class="btn-get-started scrollto d-inline-flex align-items-center
+                    justify-content-center align-self-center">
+                    <span>Next</span>&nbsp;
+                    <i class="bi bi-arrow-right"></i>
+                    </a>
+                    </div>*@
+
+                @*<div class="save col-md-3" id="prv-btn" style="display:none;">
+                    <a href="#" onclick="prev();" class="btn-get-started scrollto d-inline-flex align-items-center
+                    justify-content-center align-self-center">
+                    <i class="bi bi-arrow-left"></i><span>Prev</span>&nbsp;
+
+                    </a>
+                    </div>*@
+                <div class="save col-md-3" id="sub">
+                    <a href="#" id="save-customer"
+                        class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
+                        <span>Submit</span>&nbsp;
+                        <i class="bi bi-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="cancel col-md-3">
+                    <a href="#" id="cancel-customer"
+                        class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
+                        <span>Cancel</span>&nbsp;
+                        <i class="bi bi-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+    </div>
+
+    <br />
+
+
+    <br />
+    <br />
+
+    <div id="thanks" class="jumbotron text-center" style="display:none;">
+        <h1 class="display-3">Thank You!</h1>
+        <p class="lead"><strong>We will Sending Email</strong> for further instructions on how to download your
+            permission Letter.</p>
+        <hr>
+        <p>
+            Having trouble? <a href="/Home/Contact">Contact us</a>
+        </p>
+        <p class="lead">
+            <a class="btn btn-primary btn-sm" href="/Home/Index" role="button">Continue to homepage</a>
+        </p>
+    </div>
+</div>
+<script src="~/Scripts/js/CustomerForm.js"></script>
+
+@*<script>
+    $(function () {
+    customerForm = new PTDCCustomerForm("user-form"); //, "/ApiUser/SaveUser");
+    })
+    </script>*@
+
+<script>
+
+    function next() {
+        $("#prv-form").hide();
+        $("#nxt-form").show();
+        $("#prv-btn").show();
+        $("#nxt-btn").hide();
+        $("#sub").show();
+    }
+
+    function prev() {
+        $("#nxt-btn").show();
+        $("#prv-btn").hide();
+        $("#prv-form").show();
+        $("#nxt-form").hide();
+        $("#sub").hide();
+    }
+
+    function progress() {
+        alert("Work is under progress");
+    }
+    //function showPreview(event) {
+    //    if (event.target.files.length > 0) {
+    //        var src = URL.createObjectURL(event.target.files[0]);
+    //        var preview = document.getElementById("company-logo-preview");
+    //        preview.src = src;
+    //        preview.style.display = "block";
+    //    }
+    //}
+
+    var customerFormComponent = null;
+
+    $(function () {
+
+        customerFormComponent = new PBCustomerFormComponent("customer-form"); //, "/ApiUser/SaveUser");
+        customerFormComponent.saveURL = "ApiCustomer/SaveCustomer";
+
+        //console.log(userFormComponent.updateURL, "fffffffffffffffffff");
+
+        customerFormComponent.onSaveCompleted = function () {
+            $("#customer-form").hide();
+            $("#thanks").show();
+        }
+        customerFormComponent.onCancelled = function () {
+
+        }
+
+    })
+
+
+</script>

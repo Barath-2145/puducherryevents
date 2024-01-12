@@ -1,0 +1,334 @@
+﻿@*@{
+        ViewBag.Title = "Index2";
+        Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    }*@
+
+@{
+    //ViewBag.Title = "Index";
+    //Layout = "~/Views/Shared/_AdminLayout.cshtml";
+
+    var userName = Context.Request.Form["username"];
+
+    var role = Context.Request.Form["role"];
+    if (role == "ADMIN")
+    {
+        Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    }
+    else if (role == "USER")
+    {
+        Layout = "~/Views/Shared/_UserLayout.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_SuperAdminLayout.cshtml";
+    }
+}
+
+<style>
+
+    .table.dataTable th {
+        text-align: center;
+    }
+
+    table.dataTable thead tr {
+        background-color: gray;
+        color: white;
+    }
+
+    .action-buttons {
+        min-width: 100px !important;
+    }
+
+    .update .btn-get-started {
+        margin-top: 30px;
+        line-height: 0;
+        padding: 15px 67px;
+        border-radius: 4px;
+        transition: 0.5s;
+        color: #fff;
+        background: yellow;
+        box-shadow: 0px 5px 30px rgba(65, 84, 241, 0.4);
+    }
+
+    .save .btn-get-started {
+        margin-top: 30px;
+        line-height: 0;
+        padding: 15px 76px;
+        border-radius: 4px;
+        transition: 0.5s;
+        color: #fff;
+        background: green;
+        box-shadow: 0px 5px 30px rgba(65, 84, 241, 0.4);
+    }
+
+    .cancel .btn-get-started {
+        margin-top: 30px;
+        line-height: 0;
+        padding: 15px 69px;
+        border-radius: 4px;
+        transition: 0.5s;
+        color: #fff;
+        background: red;
+        box-shadow: 0px 5px 30px rgba(65, 84, 241, 0.4);
+    }
+
+    .sec-title-style1 .title {
+        position: relative;
+        display: block;
+        color: #012970;
+        font-size: 36px;
+        line-height: 46px;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+
+    *, ::after, ::before {
+        box-sizing: border-box;
+    }
+
+    .text-center {
+        text-align: center !important;
+    }
+
+    .sec-title-style1 .text p {
+        position: relative;
+        display: inline-block;
+        padding: 0 15px;
+        color: #012970;
+        font-size: 14px;
+        line-height: 16px;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin: 0;
+    }
+
+    .sec-title-style1 .text .decor-left {
+        position: relative;
+        top: -2px;
+        display: inline-block;
+        width: 70px;
+        height: 5px;
+        background: transparent;
+    }
+
+    .sec-title-style1 .text .decor-right {
+        position: relative;
+        top: -2px;
+        display: inline-block;
+        width: 70px;
+        height: 5px;
+        background: transparent;
+    }
+
+    .sec-title-style1 .text .decor-left span {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 50px;
+        height: 1px;
+        background: #FFA500;
+        content: "";
+        margin: 2px 0;
+    }
+
+    .sec-title-style1 .text .decor-left::before {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 5px;
+        height: 5px;
+        background: #FFA500;
+        border-radius: 50%;
+        content: "";
+    }
+
+    .sec-title-style1 .text .decor-left::after {
+        position: absolute;
+        top: 0;
+        right: 10px;
+        bottom: 0;
+        width: 5px;
+        height: 5px;
+        background: #FFA500;
+        border-radius: 50%;
+        content: "";
+    }
+
+    .sec-title-style1 .text .decor-right::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 5px;
+        height: 5px;
+        background: #FFA500;
+        border-radius: 50%;
+        content: "";
+    }
+
+    .sec-title-style1 .text .decor-right::after {
+        position: absolute;
+        top: 0;
+        left: 10px;
+        bottom: 0;
+        width: 5px;
+        height: 5px;
+        background: #FFA500;
+        border-radius: 50%;
+        content: "";
+    }
+
+    .sec-title-style1 .text .decor-right span {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 50px;
+        height: 1px;
+        background: #FFA500;
+        content: "";
+        margin: 2px 0;
+    }
+
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        font-family: sans-serif;
+    }
+
+    .item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 16px;
+    }
+
+        .item label {
+            display: flex;
+            margin: auto;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+        }
+
+    .check input {
+        position: absolute;
+        transform: scale(0);
+    }
+
+        .check input:checked ~ .checkbox {
+            transform: rotate(45deg);
+            width: 10px;
+            margin: -5px 7px 0 -15px;
+            border-color: #24c78e;
+            border-width: 4px;
+            border-top-color: transparent;
+            border-left-color: transparent;
+            border-radius: 0;
+        }
+
+    .checkbox {
+        display: block;
+        width: inherit;
+        height: inherit;
+        border: 2px solid #999;
+        border-radius: 4px;
+        transition: all 0.2s cubic-bezier(0, 0.01, 0.23, 0.8);
+    }
+
+    .container {
+        max-width: 1274px;
+    }
+</style>
+
+
+
+<div style="padding:60px;"></div>
+
+<div class="col-md-12" style="margin: 0; padding: 0;">
+    <div class="container" @*class="panel panel-default shadow"*@>
+        <div @*class="panel-heading"*@>
+
+
+            <!--</div>-->
+            <div class="sec-title-style1 text-center max-width">
+                <div class="title">Settings</div>
+                <div id="ul" class="text"><div class="decor-left"><span></span></div><p>Settings For Events</p><div class="decor-right"><span></span></div></div>
+
+            </div>
+
+        </div>
+
+
+        <div id="event-setting-form" data-aos="fade-up" data-aos-delay="200">
+
+            <br />
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="row col-md-10">
+                    <div class="col-md-3">
+                        <label><b>Event Name*</b></label>
+                        <div style="padding:4px;"></div>
+                        <select id="event-name" class="form-control"></select>
+                    </div>
+
+                    <div style="padding:8px;"></div>
+                    <label><b>All Places</b></label>
+                    <div style="padding:4px;"></div>
+                    <div id="all-places"></div>
+
+                    <div style="padding:8px;"></div>
+                    <div id="evp" style="display:none;">
+                        <label><b>Event Places</b></label>
+                        <div style="padding:4px;"></div>
+                        <div id="event-place"></div>
+                    </div>
+
+                    <div id="sv" class="save col-md-12" style="padding-left:800px;">
+                        @*<button id="save-user-button" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">Save</button>*@
+                        <a href="#" id="save-setting-button" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
+                            <span>Save</span>&nbsp;
+                            <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+
+                </div>
+                <div class="col-md-1"></div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<input type="hidden" id="login-name" value='@userName'>
+<br />
+<script src="~/Scripts/js/EventSettingForm.js"></script>
+
+<script>
+
+    var eventSettingFormComponent = null;
+
+    $(function () {
+        eventSettingFormComponent = new PBEventSettingFormComponent("event-setting-form", "/ApiSetting/GetSettings");
+
+        eventSettingFormComponent.saveURL = "ApiSetting/SaveEventSetting";
+        //eventSettingFormComponent.updateURL = "ApiUser/UpdateUser";
+        eventSettingFormComponent.placeURL = "ApiEvent/GetEventPlaces";
+        eventSettingFormComponent.nameURL = "ApiSetting/GetEventLists";
+        eventSettingFormComponent.placeDataURL = "/ApiSetting/SearchPlaces";
+     
+        eventSettingFormComponent.onSaveCompleted = function () {
+            //eventSettingFormComponent.getData();
+            document.getElementById('event-name').value = '';
+            //document.getElementById('all-dept').value = '';
+
+            document.getElementById('evd').value = '';
+            window.location.reload();
+            eventSettingFormComponent.show();
+        }
+
+
+    })
+</script>

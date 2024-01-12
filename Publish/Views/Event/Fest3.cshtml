@@ -1,0 +1,277 @@
+﻿
+@{
+    ViewBag.Title = "Fest3";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@{
+    ViewBag.Title = "Index";
+}
+<style>
+    img {
+        /*background-color:red;*/
+        height: 200px;
+        background-size: cover;
+    }
+
+    .tour p {
+        display: -webkit-box;
+        max-width: 300px;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    .tour .text-lg-start {
+        text-align: right !important;
+    }
+
+    #hero {
+        /* background-image: url('../../images/8.jpg');*/
+        background-image: url('../../images/je-taime-1.png');
+    }
+
+    .btn-get-started {
+        line-height: 0;
+        padding: 15px 95px;
+        border-radius: 4px;
+        transition: 0.5s;
+        color: #fff;
+        background: green;
+        box-shadow: 0px 5px 30px rgba(65, 84, 241, 0.4);
+    }
+
+    .sec-title-style1 .title {
+        position: relative;
+        display: block;
+        color: #012970;
+        font-size: 36px;
+        line-height: 46px;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+
+    *, ::after, ::before {
+        box-sizing: border-box;
+    }
+
+    .text-center {
+        text-align: center !important;
+    }
+
+    .sec-title-style1 .text p {
+        position: relative;
+        display: inline-block;
+        padding: 0 15px;
+        color: #012970;
+        font-size: 14px;
+        line-height: 16px;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin: 0;
+    }
+
+    .sec-title-style1 .text .decor-left {
+        position: relative;
+        top: -2px;
+        display: inline-block;
+        width: 70px;
+        height: 5px;
+        background: transparent;
+    }
+
+    .sec-title-style1 .text .decor-right {
+        position: relative;
+        top: -2px;
+        display: inline-block;
+        width: 70px;
+        height: 5px;
+        background: transparent;
+    }
+
+    .sec-title-style1 .text .decor-left span {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 50px;
+        height: 1px;
+        background: #FFA500;
+        content: "";
+        margin: 2px 0;
+    }
+
+    .sec-title-style1 .text .decor-left::before {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 5px;
+        height: 5px;
+        background: #FFA500;
+        border-radius: 50%;
+        content: "";
+    }
+
+    .sec-title-style1 .text .decor-left::after {
+        position: absolute;
+        top: 0;
+        right: 10px;
+        bottom: 0;
+        width: 5px;
+        height: 5px;
+        background: #FFA500;
+        border-radius: 50%;
+        content: "";
+    }
+
+    .sec-title-style1 .text .decor-right::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 5px;
+        height: 5px;
+        background: #FFA500;
+        border-radius: 50%;
+        content: "";
+    }
+
+    .sec-title-style1 .text .decor-right::after {
+        position: absolute;
+        top: 0;
+        left: 10px;
+        bottom: 0;
+        width: 5px;
+        height: 5px;
+        background: #FFA500;
+        border-radius: 50%;
+        content: "";
+    }
+
+    .sec-title-style1 .text .decor-right span {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 50px;
+        height: 1px;
+        background: #FFA500;
+        content: "";
+        margin: 2px 0;
+    }
+</style>
+<section id="hero" class="hero d-flex align-items-center">
+
+    <div class="container">
+        <div class="row">
+            @*<div class="col-lg-6 d-flex flex-column justify-content-center">
+                    <h1 data-aos="fade-up">Welcome.</h1>
+                    <h2 data-aos="fade-up" data-aos-delay="400">Let's Organize the Events.</h2>
+                    <div data-aos="fade-up" data-aos-delay="600">
+                        <div class="text-center text-lg-start">
+                            <a href="#values" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
+                                <span>Book Event</span>
+                                <i class="bi bi-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>*@
+            <div class="col-lg-6 hero-img" data-aos="zoom-out" data-aos-delay="200">
+
+                @*<img src="~/images/Pondicherrycollege.png" />*@
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<main id="main">
+
+
+
+    <section id="values" class="values">
+
+        <div class="container" data-aos="fade-up">
+
+            <div class="sec-title-style1 text-center max-width">
+                <div class="title">Event Bookings</div>
+                <div class="text"><div class="decor-left"><span></span></div><p>Check out the places</p><div class="decor-right"><span></span></div></div>
+
+            </div>
+            <header class="section-header">
+                <!--<h1 style="color:#012970;"><b>Event Bookings</b></h1>-->
+                @*<p style="color:gray;">Check out the places.</p>*@
+                <!--<h2 style="color:gray;">Check out the places.</h2>-->
+            </header>
+
+            <div class="row tour">
+
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="box">
+                        @*<img src="assets/img/values-1.png" class="img-fluid" alt="">*@
+                        <img src="~/images/1.jpg" />
+                        <h3>Gandhi Statue</h3>
+                        <p>Puducherry's unique landmark and a favourite tourist attraction. Mahatma Ghandhi statue is surrounded by eight monolithic granite pillars brought from Gingee, a fort 70Kms from Puducherry. Located across the street from Ghandhi Statue is the statue of Jawaharlal Nehru.</p>
+                        <div class="text-center text-lg-start">
+                            <a href="/Description/Event1" class="">
+                                <span>Book Event</span>
+                                <i class="bi bi-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                
+
+                <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="600">
+                    <div class="box">
+                        <img src="~/images/harbour.jpg" />
+                        <h3>Old Harbour</h3>
+                        <p>A small village 30 mins drive from Puducherry on the ECR towards Chennai. The Matrimandir is the finest attraction of Auroville. Entry passes can be obtained for free at Auroville Visitor's Centre, after watching a short introductory video on the Matrimandir. </p>
+                        <div class="text-center text-lg-start">
+                            <a href="/Description/Event3" class="">
+                                <span>Book Event</span>
+                                <i class="bi bi-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="box">
+                        @*<img src="assets/img/values-1.png" class="img-fluid" alt="">*@
+
+                        <img src="~/images/7.jpg" />
+                        <h3>Paradise Beach</h3>
+                        <p>Chunnambar is an important backwater ecosystem where the popular PTDC water sports complex is located on the Cuddalore main road. The beach is extremely attractive as the sands are clean with clear water. </p>
+                        <div class="text-center text-lg-start">
+                            <a href="/Description/Event4" class="">
+                                <span>Book Event</span>
+                                <i class="bi bi-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+               
+              
+                <!--<div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="box">-->
+                @*<img src="assets/img/values-1.png" class="img-fluid" alt="">*@
+
+                <!--<img src="~/images/AnnaThidal.jpeg" />
+                        <h3>Anna Thidal</h3>
+                        <p>Anna Thidal (Stadium) is located in Puducherry, Puducherry, India. Nearby area or landmark is MG Road Area. Address of Anna Thidal is Rahtna Theatre, Anna Statue, Anna Salai, MG Road Area, Puducherry, 605001, India. Anna Thidal has quite many listed places around it and we are covering at least 84 places.</p>
+                        <div class="text-center text-lg-start">
+                            <a href="#about" class="">
+                                <span>Let's Go</span>
+                                <i class="bi bi-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>-->
+            </div>
+
+        </div>
+
+    </section>

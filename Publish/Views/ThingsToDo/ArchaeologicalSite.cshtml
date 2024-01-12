@@ -1,0 +1,498 @@
+﻿
+@{
+    ViewBag.Title = "ArchaeologicalSite";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+
+<style>
+    /* Make the image fully responsive */
+    .carousel-inner img {
+        width: 100%;
+        height: 400px;
+    }
+
+    .card {
+        margin-bottom: 2rem;
+    }
+
+    #main h1 {
+        font-size: 45px;
+        color: #bac0e3;
+        text-align: center;
+    }
+
+    .cards-list {
+        z-index: 0;
+        width: 71%;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        margin: auto;
+    }
+
+    .auro .card {
+        margin: 30px auto;
+        width: 300px;
+        height: 260px;
+        border-radius: 50px 0;
+        box-shadow: 0px 0px 15px rgb(0 0 0 / 30%);
+        cursor: pointer;
+        transition: 0.4s;
+        justify-content: flex-start !important;
+        background-color: #97A9BD;
+    }
+
+    .card_image {
+        background: #fff;
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        margin: 10px auto;
+    }
+
+        .card_image i {
+            margin: 17px;
+            font-size: 37px;
+            -webkit-animation: spin 4s linear infinite;
+            -moz-animation: spin 4s linear infinite;
+            animation: spin 4s linear infinite;
+        }
+
+    @@-moz-keyframes spin {
+        100% {
+            -moz-transform: rotate(360deg);
+        }
+    }
+
+    @@-webkit-keyframes spin {
+        100% {
+            -webkit-transform: rotate(360deg);
+        }
+    }
+
+    @@keyframes spin {
+        100% {
+            -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+        }
+    }
+
+    .card_title .heading {
+        font-size: 1.2rem;
+        font-weight: 700;
+        margin: auto;
+        text-align: center;
+        color: #fff;
+    }
+
+    .card_title p {
+        margin: 10px auto;
+        line-height: normal;
+        text-align: center;
+        color: #fff;
+    }
+
+    .cards-list .card:nth-child(1) {
+        background-color: #97A9BD;
+    }
+
+        .cards-list .card:nth-child(1):hover {
+            background-color: #5e6e80;
+        }
+
+    .cards-list .card1 .card_image a i {
+        color: #97A9BD;
+    }
+
+    .cards-list .card:nth-child(2) {
+        background-color: #A197BD;
+    }
+
+        .cards-list .card:nth-child(2):hover {
+            background-color: #625682;
+        }
+
+    .cards-list .card2 .card_image a i {
+        color: #A197BD;
+    }
+
+    .cards-list .card:nth-child(3) {
+        background-color: #BDA697;
+    }
+
+        .cards-list .card:nth-child(3):hover {
+            background-color: #826552;
+        }
+
+    .cards-list .card3 .card_image a i {
+        color: #BDA697;
+    }
+
+    .btn-flip {
+        opacity: 1;
+        outline: 0;
+        color: #fff;
+        line-height: 40px;
+        position: relative;
+        text-align: center;
+        letter-spacing: 1px;
+        display: inline-block;
+        text-decoration: none;
+        font-family: "Open Sans";
+        text-transform: uppercase;
+    }
+
+        .btn-flip:hover:after {
+            opacity: 1;
+            transform: translateY(0) rotateX(0);
+        }
+
+        .btn-flip:hover:before {
+            opacity: 0;
+            transform: translateY(50%) rotateX(90deg);
+        }
+
+        .btn-flip:after {
+            top: 0;
+            left: 0;
+            opacity: 0;
+            width: 100%;
+            color: #ababb4;
+            display: block;
+            transition: 0.5s;
+            position: absolute;
+            background: #fcfcfc;
+            content: attr(data-back);
+            transform: translateY(-50%) rotateX(90deg);
+        }
+
+        .btn-flip:before {
+            top: 0;
+            left: 0;
+            opacity: 1;
+            color: #f9f9ff;
+            display: block;
+            padding: 0 30px;
+            line-height: 40px;
+            transition: 0.5s;
+            position: relative;
+            /* background: #fbfbfd; */
+            content: attr(data-front);
+            transform: translateY(0) rotateX(0);
+            border: 1px solid #fbfbfb;
+        }
+
+    .btn-read {
+        justify-content: center;
+        align-content: center;
+        display: flex;
+        margin: 31px;
+    }
+
+    .auro p {
+        display: -webkit-box;
+        max-width: 300px;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    .sec-title-style1 .title {
+        position: relative;
+        display: block;
+        color: #012970;
+        font-size: 36px;
+        line-height: 46px;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+
+    *, ::after, ::before {
+        box-sizing: border-box;
+    }
+
+    .sec-title-style1 .text p {
+        position: relative;
+        display: inline-block;
+        padding: 0 15px;
+        color: #012970;
+        font-size: 14px;
+        line-height: 16px;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin: 0;
+    }
+
+    .sec-title-style1 .text .decor-left {
+        position: relative;
+        top: -2px;
+        display: inline-block;
+        width: 70px;
+        height: 5px;
+        background: transparent;
+    }
+
+    .sec-title-style1 .text .decor-right {
+        position: relative;
+        top: -2px;
+        display: inline-block;
+        width: 70px;
+        height: 5px;
+        background: transparent;
+    }
+
+    .sec-title-style1 .text .decor-left span {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 50px;
+        height: 1px;
+        background: #FFA500;
+        content: "";
+        margin: 2px 0;
+    }
+
+    .sec-title-style1 .text .decor-left::before {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 5px;
+        height: 5px;
+        background: #FFA500;
+        border-radius: 50%;
+        content: "";
+    }
+
+    .sec-title-style1 .text .decor-left::after {
+        position: absolute;
+        top: 0;
+        right: 10px;
+        bottom: 0;
+        width: 5px;
+        height: 5px;
+        background: #FFA500;
+        border-radius: 50%;
+        content: "";
+    }
+
+    .sec-title-style1 .text .decor-right::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 5px;
+        height: 5px;
+        background: #FFA500;
+        border-radius: 50%;
+        content: "";
+    }
+
+    .sec-title-style1 .text .decor-right::after {
+        position: absolute;
+        top: 0;
+        left: 10px;
+        bottom: 0;
+        width: 5px;
+        height: 5px;
+        background: #FFA500;
+        border-radius: 50%;
+        content: "";
+    }
+
+    .sec-title-style1 .text .decor-right span {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 50px;
+        height: 1px;
+        background: #FFA500;
+        content: "";
+        margin: 2px 0;
+    }
+</style>
+
+
+
+<div id="demo" class="carousel slide" data-ride="carousel">
+    <ul class="carousel-indicators">
+        <li data-target="#demo" data-slide-to="0" class="active"></li>
+        <li data-target="#demo" data-slide-to="1"></li>
+        <li data-target="#demo" data-slide-to="2"></li>
+    </ul>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="~/images/auro8.jpg" width="1100" height="200" />
+            @*<img src="la.jpg" alt="Los Angeles" width="1100" height="500">*@
+            <div class="carousel-caption">
+                <h3>Arikamedu</h3>
+                <p>We had such a great time in Arikamedu!</p>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="~/images/auro11.png" width="1100" height="200" />
+            @*<img src="chicago.jpg" alt="Chicago" width="1100" height="500">*@
+            <div class="carousel-caption">
+                <h3>Arikamedu</h3>
+                <p>Thank you, Puducherry!</p>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="~/images/auro12.jpg" width="1100" height="200" />
+            @*<img src="ny.jpg" alt="New York" width="1100" height="500">*@
+            <div class="carousel-caption">
+                <h3>Arikamedu</h3>
+                <p>We love the Sculptures!</p>
+            </div>
+        </div>
+    </div>
+    <a class="carousel-control-prev" href="#demo" data-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+    </a>
+    <a class="carousel-control-next" href="#demo" data-slide="next">
+        <span class="carousel-control-next-icon"></span>
+    </a>
+</div>
+<div style="padding:8px;"></div>
+<div>
+    <div class="container" data-aos="fade-up" data-aos-delay="200">
+        <div class="row">
+            <div class="col-12 col-sm-6 col-lg-12">
+                <div class="card bg-light">
+                    <div class="card-body" style="background-color:darkgray; color:black;">
+                        <h4 class="card-title">Arikamedu</h4>
+                        <h6 class="card-subtitle mb-2">Sculptures and Ancient Items</h6>
+                        <p class="card-text">
+                            Arikamedu
+                            A historical site and a place for all history-buffs located on the outskirts of Puducherry, Arikamedu is a bridge between Roman and Indian architecture. An archaeological site maintained by the Archaeological Society of India, it is surrounded by moss-laden walls and brick structures that stand testament to the entirety of Rome and Greece in a couple of square meters.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container" data-aos="fade-up" data-aos-delay="200">
+    <div class="sec-title-style1 text-center max-width">
+        <div class="title">Visiting Time</div>
+        <div class="text"><div class="decor-left"><span></span></div><p>Time to visit Arikamedu</p><div class="decor-right"><span></span></div></div>
+    </div>
+    
+    <p>
+        <h5 style="color:brown">Timing for the Visitors:</h5>
+
+        Mon. to Sun., 10:00 a.m. - 04:00 p.m.
+
+
+    </p>
+   
+    <p>
+        <h5 style="color:brown">History of Arikamedu:</h5>
+        As you enter the site, you will come across ancient columns, walls, and mortars standing tall along the Ariyankuppam river with dilapidated French Jesuit Mission buildings dating back to the 18th century. Interestingly, Arikamedu had an urban settlement between 1000 BC to 100 AD.
+
+        Some of the most interesting archaeological finds from Arikamedu include amphorae (ancient Roman/Greek jar), glassware, gold, gems, stone beads, coins, lamps, and much more. These artifacts are priceless and will be soon displayed in a museum set to be built on the same site.
+
+        Besides these antiques, Arikamedu also produces locally-made products such as cotton fabric, muslin, gold beads, jute textiles, and pottery.
+    </p>
+</div>
+<section class="auro" id="main" data-aos="fade-up" data-aos-delay="200">
+    @*<h1>Nearby Places</h1>*@
+    <div class="sec-title-style1 text-center max-width">
+        <div class="title">Nearby Places</div>
+        <div class="text"><div class="decor-left"><span></span></div><p>Places Near Arikamedu</p><div class="decor-right"><span></span></div></div>
+    </div>
+    <div class="cards-list">
+
+        <div class="card card1">
+            <div class="card_image">
+                <img src="~/images/auro8.jpg" height="71px" width="75px" style="border-radius:50%;" />
+                @*<a href=""><i class="fa fa-spinner"></i></a>*@
+            </div>
+            <div class="card_title title-white">
+                <h6 class="heading">Aurobindo Ashram</h6>
+                <p>Yet another feather in Puducherry’s hat, Aurobindo ashram has stood the test of time and emotion for a while now. Set up by Aurobindo Ghosh in the 1920s, it is home to almost 2000+ residents and visiting tourists who come here to get respite from the bustle of the city. It still holds the mortal remains of Sri Aurobindo and The Mother in a white marble shrine.</p>
+
+            </div>
+            <div class="btn-read">
+                <a href="#" class="btn-flip" data-back="Back" data-front="read more"></a>
+            </div>
+        </div>
+
+
+        <div class="card card2">
+            <div class="card_image">
+                <img src="~/images/irumbai.jpg" height="71px" width="75px" style="border-radius:50%;" />
+                @*<a href=""><i class="fa fa-spinner"></i></a>*@
+            </div>
+            <div class="card_title title-white">
+                <h6 class="heading">Goubert Market</h6>
+                <p>If you love to shop a little while holidaying, the Goubert market is the place for you. A seamless buzz of tourists and locals flock to the market throughout the day to buy everything from handicrafts to fish, apparel to jewelry, and much more. A quaint shopping experience awaits you!</p>
+
+            </div>
+            <div class="btn-read">
+                <a href="#" class="btn-flip" data-back="Back" data-front="read more"></a>
+            </div>
+        </div>
+
+
+        <div class="card card3">
+            <div class="card_image">
+                <img src="~/images/auro12.jpg" height="71px" width="75px" style="border-radius:50%;" />
+                @*<a href=""><i class="fa fa-spinner"></i></a>*@
+            </div>
+            <div class="card_title title-white">
+                <h6 class="heading">Promenade</h6>
+                <p>One of the most famous beaches of Puducherry, Promenade is a rocky stretch of beach overlooking the expansive Bay of Bengal. The sandy coastline dotted across the length and breadth of the beach offer respite from a long day of sightseeing and visiting places. It harbors the famous remnants of an old jetty, a lighthouse, a Joan of Arc statue, and an intricate effigy of Mahatma Gandhi.</p>
+
+            </div>
+            <div class="btn-read">
+                <a href="#" class="btn-flip" data-back="Back" data-front="read more"></a>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<div class="address" data-aos="fade-up" data-aos-delay="200">
+    <div class="container">
+        <div class="sec-title-style1 text-center max-width">
+            <div class="title">Location</div>
+            <div class="text"><div class="decor-left"><span></span></div><p>How To Reach Arikamedu</p><div class="decor-right"><span></span></div></div>
+        </div>
+        <div style="padding:4px;"></div>
+        <div class="row col-md-12">
+            <div class="col-md-4">
+                <img src="~/images/auro1.jpg" height="178" width="360" />
+            </div>
+            <div class="col-12 col-sm-6 col-lg-8">
+                <div class="card bg-light">
+                    <div class="card-body" @*style="background-color:darkgray; color:black;"*@>
+
+
+                        <p class="card-text">
+                            Arikamedu is located along the Ariyankuppam river, in Kakkayanthope,<br />
+                            Approximately 4 to 5 kms away from Puducherry.
+                        </p>
+                        <br />
+                        <p class="card-text">
+                            Ariyankuppam, Puducherry,<br />
+                            <b>Pincode:</b> &nbsp;605007
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

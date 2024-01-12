@@ -1,0 +1,267 @@
+﻿
+@{
+    ViewBag.Title = "AftGround";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        font-family: Arial;
+    }
+
+    .header {
+        text-align: center;
+        padding: 32px;
+    }
+
+    .row {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        padding: 0 4px;
+    }
+
+
+    .column {
+        -ms-flex: 25%;
+        flex: 25%;
+        max-width: 25%;
+        padding: 0 4px;
+    }
+
+        .column img {
+            margin-top: 8px;
+            vertical-align: middle;
+            border-radius: 12px;
+        }
+
+    #hero {
+        /*background-image: url('../../images/Tourist-attractions-of-Pondicherry.png');*/
+        /* background-image: url('../../images/8.jpg');*/
+        background-image: url('../../images/27355855_1695195130541780_1051434069182653158_o.jpg');
+        /*  background-image: url('../../images/pondicherry logo.gif');
+        background-size: 1340px 686px;
+    */
+    }
+
+
+    @@media screen and (max-width: 800px) {
+        .column {
+            -ms-flex: 50%;
+            flex: 50%;
+            max-width: 50%;
+        }
+    }
+
+    @@media screen and (max-width: 600px) {
+        .column {
+            -ms-flex: 100%;
+            flex: 100%;
+            max-width: 100%;
+        }
+    }
+
+    .sec-title-style1 .title {
+        position: relative;
+        display: block;
+        color: #012970;
+        font-size: 36px;
+        line-height: 46px;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+
+    *, ::after, ::before {
+        box-sizing: border-box;
+    }
+
+    .text-center {
+        text-align: center !important;
+    }
+
+    .sec-title-style1 .text p {
+        position: relative;
+        display: inline-block;
+        padding: 0 15px;
+        color: #012970;
+        font-size: 14px;
+        line-height: 16px;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin: 0;
+    }
+
+    .sec-title-style1 .text .decor-left {
+        position: relative;
+        top: -2px;
+        display: inline-block;
+        width: 70px;
+        height: 5px;
+        background: transparent;
+    }
+
+    .sec-title-style1 .text .decor-right {
+        position: relative;
+        top: -2px;
+        display: inline-block;
+        width: 70px;
+        height: 5px;
+        background: transparent;
+    }
+
+    .sec-title-style1 .text .decor-left span {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 50px;
+        height: 1px;
+        background: #FFA500;
+        content: "";
+        margin: 2px 0;
+    }
+
+    .sec-title-style1 .text .decor-left::before {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 5px;
+        height: 5px;
+        background: #FFA500;
+        border-radius: 50%;
+        content: "";
+    }
+
+    .sec-title-style1 .text .decor-left::after {
+        position: absolute;
+        top: 0;
+        right: 10px;
+        bottom: 0;
+        width: 5px;
+        height: 5px;
+        background: #FFA500;
+        border-radius: 50%;
+        content: "";
+    }
+
+    .sec-title-style1 .text .decor-right::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 5px;
+        height: 5px;
+        background: #FFA500;
+        border-radius: 50%;
+        content: "";
+    }
+
+    .sec-title-style1 .text .decor-right::after {
+        position: absolute;
+        top: 0;
+        left: 10px;
+        bottom: 0;
+        width: 5px;
+        height: 5px;
+        background: #FFA500;
+        border-radius: 50%;
+        content: "";
+    }
+
+    .sec-title-style1 .text .decor-right span {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 50px;
+        height: 1px;
+        background: #FFA500;
+        content: "";
+        margin: 2px 0;
+    }
+
+    .tech-slideshow {
+        height: 8px;
+        max-width: 1400px;
+        margin: 0 auto;
+        position: relative;
+        overflow: hidden;
+        transform: translate3d(0, 0, 0);
+    }
+
+        .tech-slideshow > td {
+            /*height: 200px;*/
+            width: 1400px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            /*  height: 100%;*/
+            transform: translate3d(0, 0, 0);
+        }
+
+        .tech-slideshow .mover-1 {
+            animation: moveSlideshow 10s linear infinite;
+        }
+
+    @@keyframes moveSlideshow {
+        100% {
+            transform: translateX(-66.6666%);
+        }
+    }
+</style>
+
+<!-- Photo Grid -->
+<br />
+<br />
+
+<br />
+<br />
+
+
+<div class="container">
+    <div class="row">
+        <div class="sec-title-style1 text-center max-width">
+            <br />
+            <div class="title">AFT Ground</div>
+            <div class="text"><div class="decor-left"><span></span></div><p>Images of AFT Ground</p><div class="decor-right"><span></span></div></div>
+            <br />
+        </div>
+        <div>
+            <br />
+
+        </div>
+        <div class="column">
+            <img data-aos="fade-up" data-aos-delay="200" src="~/images/aft5.jpg" style="width:100%" />
+            <img data-aos="fade-up" data-aos-delay="200" src="~/images/aft1.jpg" style="width:100%; height:207px;" />
+        </div>
+        <div class="column">
+            <img data-aos="fade-up" data-aos-delay="200" src="~/images/af2.jpg" style="width:100%" />
+            <img data-aos="fade-up" data-aos-delay="200" src="~/images/aft6.jpg" style="width:100%" />
+        </div>
+        <div class="column">
+            <img data-aos="fade-up" data-aos-delay="200" src="~/images/aft3.JPG" style="width:100%" />
+            <img data-aos="fade-up" data-aos-delay="200" src="~/images/aft7.JPG" style="width:100%" />
+
+        </div>
+        <div class="column">
+            <img data-aos="fade-up" data-aos-delay="200" src="~/images/aft4.JPG" style="width:100%" />
+            <img data-aos="fade-up" data-aos-delay="200" src="~/images/aft8.JPG" style="width:100%" />
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+
+<br />
+
